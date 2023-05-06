@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to my web page!!!</title>
+        <style>
+            
+            p.heading{
+                font-family: 'Times New Roman', Times, serif;
+                font-size: xxx-large;
+                font-weight: bold;
+                position: absolute;
+                top: 10px;
+                left: 250px;}
+            p.body{
+                font-family: 'Times New Roman', Times, serif;
+                font-size: xx-large;
+                position: absolute;
+                top: 90px;
+                left: 260px;}
+            .square{
+                height: 500px;
+                width: 500px;
+                background-color:green;
+                position: absolute;
+                top: 300px;
+                left: 250px;}
+            .rectangle{
+                height: 50px;
+                width: 100px;
+                background-color: purple;
+                position: relative;}
+            
+            @keyframes move {
+              0% {left: 0%;}
+              100% {left: calc(100% - 100px);} }
+
+            button{
+                position: absolute;
+                top: 175px;
+                left: 250px;
+                height: 50px;
+                width: 175px;
+                text-align: center;
+                font-size: 35px;
+                font-family: 'Times New Roman', Times, serif;
+                background-color: purple;
+                -webkit-text-fill-color: white;}
+
+            .move{animation: move 1s infinite alternate linear;}
+            .reset-animation{animation: move 1s  reverse linear;}
+        </style> 
+    </head>
+    <body bgcolor="grey">
+        <button class = "start_button">Start/Stop</button>
+        <div class="square">
+            <div class="rectangle"></div>
+        </div>
+        <p class="heading">Welcome to my web page!</p>
+        <p class="body">Behold the almighty moving rectangle!</p>
+
+    <script> 
+        const rectangle = document.querySelector(".rectangle");
+        const start_button = document.querySelector(".start_button");
+
+        start_button.addEventListener('click', () => {
+            if (rectangle.classList.contains('move')) {
+            rectangle.classList.remove('move');
+            void rectangle.offsetWidth; 
+            rectangle.classList.add('reset-animation');}
+            else {
+                    rectangle.classList.remove('reset-animation');
+                    rectangle.classList.add('move');}});
+    </script>
+    </body>
+</html>
