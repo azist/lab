@@ -1,0 +1,70 @@
+<html>
+<head>
+
+<style>
+
+button {
+    border: 1px #7090e0 solid;
+    padding: 8px;
+    border-radius: 6px;
+    background: #80a0f0;
+    color: #f0f0f0;
+}
+
+#divRect{
+  XXXbackground: url(https://hub-cms.g8day-dev.com/favicon.ico);
+  background: #f02070;
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+
+ 
+</style>
+</head>
+
+<body>
+ Here is some textfhushfuihs hs uhf suhf osuh fuish ufih sauihf uisah fuih suif husi hf
+
+ <div id="divRect">&nbsp;</div>
+ <button onclick="reset()">STOP MONSTER!</button>
+ <!-- <button onclick="fart()">FART MONSTER!</button> -->
+
+<script>
+  let div = document.getElementById("divRect");
+  let x = 0;
+  let y = 0;
+  let dx = 2;
+  let dy = 1;
+  
+  function reset(){
+    x=0;
+    y=0;
+  }
+  
+  function update(){
+    x+=dx;
+    if (x < 0 || x > 500){
+      dx*=-1;
+      
+    }  
+    y+=dy;
+  }
+  
+  function draw(){
+    div.style.left = (x + "px");
+    div.style.top = (y + "px");
+  }
+  
+  function slice(){
+    update();
+    draw();
+    setTimeout(slice, 10);
+  }
+
+  slice();
+</script>
+
+</body>
+</html>
