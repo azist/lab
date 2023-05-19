@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Game</title>
+        <!--<h1 class ="heading"> Press the button to start </h1>!-->
+        <h1 id ="score"> Score: </h1>
+        <h1 id ="lives"> Lives left: 3  </h1>
+        <h1 id="message"></h1>
+    </head>
+
+    <style>
+
+        html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        max-height: 100%;
+        overflow-y: hidden
+        }
+
+        body {background-color: #212121};
+
+        .heading{
+            color: white;
+        }
+
+        #message{
+            font-family: Arial, Helvetica, sans-serif;
+            color:red;
+            position: absolute;
+            font-size: 300px;
+            z-index: 3;
+            top:200px;
+            left: 300px;
+            -webkit-text-stroke: 10px black; 
+        }
+
+
+        #start_button{
+            height: 75px;
+            width: 75px;
+            background-color: #c91838;
+            border-radius: 50%;
+            border-color: rgb(0, 0, 0);
+            border-width: 10px;
+            position: absolute;
+            top: 100px;
+            left: 1162.5px;
+        }
+
+        .heading{
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;
+            left: 950px;
+            color: white;
+        }
+
+
+        #score{
+            font-family: 'Courier New', Courier, monospace;
+            position: absolute;
+            top: 100px;
+            left: 950px;
+            color: white;
+        }
+
+        #lives{
+            font-family: 'Courier New', Courier, monospace;
+            position: absolute;
+            top: 100px;
+            left: 1300px;
+            color: white;
+        }
+
+        #sky{
+            height: 800px;
+            width: 800px;
+            background-color: skyblue;
+            position: absolute;
+            top: 200px;
+            left: 800px;
+            border-radius: 2.5%;}
+
+        #Border{
+            height: 800px;
+            width: 85px;
+            background-color: #212121;
+            position: absolute;
+            top: 200px;
+            left: 715px;
+            z-index: 2;
+        }
+
+        #enemy{
+            height: 30px;
+            width: 75px;
+            background-color: #616161;
+            position: absolute;
+            top: 250px;
+            left: 720px;
+            z-index: 1;
+        }
+
+        #player{
+            height: 50px;
+            width: 50px;
+            background-color: #080808;
+            position: absolute;
+            top: 950px;
+            left: 800px;
+        }
+        .projectile {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: red;
+        border-radius: 0%;
+        }
+
+        #divRect{
+        background: #f02070;
+        display: block;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        }
+
+        #cloud1{ 
+            margin-top:70px;
+            width:150px;
+            height:60px;
+            background:#ECEFF1;
+            box-shadow: 6px 4px rgba(0,0,0,0.2);
+            border-radius:100px;
+            opacity: 60%;
+            position: absolute;
+            top: 300px;
+            left: 1100px;
+
+        }
+        #cloud2{ 
+            margin-top:70px;
+            width:150px;
+            height:60px;
+            background:#ECEFF1;
+            box-shadow: 7px 7px rgba(0,0,0,0.2);
+            border-radius:100px;
+            opacity: 50%;
+            position: absolute;
+            top: 600px;
+            left: 1300px;
+
+        }
+        #cloud3{ 
+            margin-top:70px;
+            width:150px;
+            height:60px;
+            background:#ECEFF1;
+            box-shadow: 8px 9px rgba(0,0,0,0.2);
+            border-radius:100px;
+            opacity: 70%;
+            position: absolute;
+            top: 700px;
+            left: 850px;
+
+        }
+        #cloud4{ 
+            margin-top:70px;
+            width:150px;
+            height:60px;
+            background:#ECEFF1;
+            box-shadow: 8px 9px rgba(0,0,0,0.2);
+            border-radius:100px;
+            opacity: 55%;
+            position: absolute;
+            top: 175px;
+            left: 1400px;
+
+        }
+        #cloud5{ 
+            margin-top:70px;
+            width:150px;
+            height:60px;
+            background:#ECEFF1;
+            box-shadow: 6px 4px rgba(0,0,0,0.2);
+            border-radius:100px;
+            opacity: 60%;
+            position: absolute;
+            top: 450px;
+            left: 900px;
+
+        }
+    </style>
+    <body>
+        <div id="sky" class="canvas"></div>
+        <div id="Border"></div>
+        <div id="player"></div>
+        <div id="projectile-container"></div>
+        <div id="enemy"></div>
+        <!--<button id="start_button" onclick="slice"></button>!-->
+        <div id="cloud1"></div>
+        <div id="cloud2"></div>
+        <div id="cloud3"></div>
+        <div id="cloud4"></div>
+        <div id="cloud5"></div>   
+        
+    <script>
+        let player = document.getElementById('player');
+        let player_variables = {
+            Width: player.offsetWidth, 
+            X: document.getElementById(player.style.left),
+            Y: document.getElementById(player.style.top),
+            }
+        let skyWidth = document.getElementById('sky').offsetWidth;
+        let enemy = document.getElementById('enemy');
+        let enemy_variables = {
+            x: 720,
+            y: (Math.floor(Math.random() * 600) + 300),
+            speed: (Math.floor(Math.random() * 4)),
+        }
+        let projectile = document.getElementById('projectile');
+        let initialLeft = (skyWidth * 1.5) - player_variables.Width / 2;
+        let maxLeft = (skyWidth * 2 ) - player_variables.Width;
+        let minLeft = skyWidth;
+        let count = 0;
+        let score = 0;
+        let lives = 3;
+        let game_lost = false;
+
+        player.style.left = initialLeft + 'px';
+
+        // Establishing Keystroke input
+
+        document.addEventListener('keydown', function(event) {
+        let currentLeft = parseInt(player.style.left) || 0;
+
+        if (event.key === 'ArrowLeft' && currentLeft > minLeft) {
+            player.style.left = currentLeft - 30 + 'px';
+        }
+        
+        if (event.key === 'ArrowRight' && currentLeft < maxLeft) {
+            player.style.left = currentLeft + 30 + 'px';    
+        }})
+
+        document.addEventListener('keydown', function(event) {
+        if (event.key === ' ') {shootProjectile();}
+        }
+        );
+
+        // Establishing a function for shooting projectiles
+
+        function shootProjectile() {
+            const player = document.getElementById('player');
+            const projectileContainer = document.getElementById('projectile-container');
+
+            const projectile = document.createElement('div');
+                projectile.classList.add('projectile');
+                projectile.style.left = player.offsetLeft + player.offsetWidth / 2 - 5 + 'px';
+                projectile.style.top = player.offsetTop
+
+                    projectileContainer.appendChild(projectile);
+
+            const projectileAnimation = projectile.animate(
+                [
+                { top: window.innerHeight + 'px' },
+                { top: '0px' }
+                ],
+                { 
+                duration: 100,
+                iterations: 1
+                });
+
+            projectileAnimation.onfinish = function() {
+                projectile.remove();
+            };
+            }
+
+            function recall(){
+                enemy_variables.x+=enemy_variables.speed;
+                if (enemy_variables.x < 700 || enemy_variables.x > 1525){
+                    lives -= 1
+                    
+                    document.getElementById("lives").innerHTML = ( "Lives Left: " + lives);
+
+                    enemy_variables.x = 720;
+                    enemy_variables.y = (Math.floor(Math.random() * 600) + 300);
+                    enemy_variables.speed = (Math.floor(Math.random() * 4));
+                    count += 1;
+                    console.log(count);
+                    }
+                if (count >= 3){
+                    enemy_variables.speed*=0;
+                    document.getElementById("message").innerHTML = ("GAME OVER");  
+                }
+            }
+            
+            function movement(){
+                enemy.style.left = (enemy_variables.x + "px");
+                enemy.style.top = (enemy_variables.y + "px");
+            }
+            
+            function slice(){
+                recall();
+                movement();
+                checkCollision();   
+                setTimeout(slice, 1);
+            }
+
+            function checkCollision() {
+                let projectiles = document.getElementsByClassName('projectile');
+                
+                for (let i = 0; i < projectiles.length; i++) {
+                    let projectile = projectiles[i];
+                    
+                    let projectileRect = projectile.getBoundingClientRect();
+                    let enemyRect = enemy.getBoundingClientRect();
+                    
+                    if (
+                        projectileRect.left < enemyRect.right &&
+                        projectileRect.right > enemyRect.left &&
+                        projectileRect.top < enemyRect.bottom &&
+                        projectileRect.bottom > enemyRect.top
+                    ) {
+                        // Collision occurred
+                        projectile.remove();
+                        enemy_variables.x = 720;
+                        enemy_variables.y = (Math.floor(Math.random() * 600) + 300);
+                        enemy_variables.speed = (Math.floor(Math.random() * 4));
+                        score += 1;
+                        document.getElementById("score").innerHTML = ( "Score: " + score);
+                    }
+                }
+            }
+            
+            slice();     
+       
+    </script>
+    <body>
+</html>
+
