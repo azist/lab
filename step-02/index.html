@@ -218,26 +218,28 @@
             speed: (Math.floor(Math.random() * 4)),
         }
         let projectile = document.getElementById('projectile');
-        let initialLeft = (skyWidth * 1.5) - player_variables.Width / 2;
-        let maxLeft = (skyWidth * 2 ) - player_variables.Width;
-        let minLeft = skyWidth;
-        let count = 0;
-        let score = 0;
-        let lives = 3;
-        let game_lost = false;
+        let game_variables = {
+            initialLeft:(skyWidth * 1.5) - player_variables.Width / 2,
+            maxLeft: (skyWidth * 2 ) - player_variables.Width,
+            minLeft: skyWidth,
+            count: 0,
+            score: 0,
+            lives: 3,
+            game_lost: false
+        }
 
-        player.style.left = initialLeft + 'px';
+        player.style.left = game_variables.initialLeft + 'px';
 
         // Establishing Keystroke input
 
         document.addEventListener('keydown', function(event) {
         let currentLeft = parseInt(player.style.left) || 0;
 
-        if (event.key === 'ArrowLeft' && currentLeft > minLeft) {
+        if (event.key === 'ArrowLeft' && currentLeft > game_variables.minLeft) {
             player.style.left = currentLeft - 30 + 'px';
         }
         
-        if (event.key === 'ArrowRight' && currentLeft < maxLeft) {
+        if (event.key === 'ArrowRight' && currentLeft < game_variables.maxLeft) {
             player.style.left = currentLeft + 30 + 'px';    
         }})
 
@@ -264,8 +266,8 @@
                 { top: window.innerHeight + 'px' },
                 { top: '0px' }
                 ],
-                { 
-                duration: 100,
+                {  
+                duration: 400,
                 iterations: 1
                 });
 
@@ -277,17 +279,17 @@
             function recall(){
                 enemy_variables.x+=enemy_variables.speed;
                 if (enemy_variables.x < 700 || enemy_variables.x > 1525){
-                    lives -= 1
+                    game_variables.lives -= 1
                     
-                    document.getElementById("lives").innerHTML = ( "Lives Left: " + lives);
+                    document.getElementById("lives").innerHTML = ( "Lives Left: " + game_variables.lives);
 
                     enemy_variables.x = 720;
                     enemy_variables.y = (Math.floor(Math.random() * 600) + 300);
                     enemy_variables.speed = (Math.floor(Math.random() * 4));
-                    count += 1;
-                    console.log(count);
+                    game_variables.count += 1;
+                    console.log(game_variables.count);
                     }
-                if (count >= 3){
+                if (game_variables.count >= 3){
                     enemy_variables.speed*=0;
                     document.getElementById("message").innerHTML = ("GAME OVER");  
                 }
@@ -325,8 +327,8 @@
                         enemy_variables.x = 720;
                         enemy_variables.y = (Math.floor(Math.random() * 600) + 300);
                         enemy_variables.speed = (Math.floor(Math.random() * 4));
-                        score += 1;
-                        document.getElementById("score").innerHTML = ( "Score: " + score);
+                        game_variables.score += 1;
+                        document.getElementById("score").innerHTML = ( "Score: " + game_variables.score);
                     }
                 }
             }
