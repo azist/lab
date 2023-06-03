@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+    <html>
+
+        <head>
+  
+              <title>Press 'Space' to Start!</title>
+
+    <style>
+    
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            max-height: 100%;
+            overflow-y: hidden;
+        }
+
+        body {
+            background-color: #252323;
+        }
+
+        .square {
+            height: 500px;
+            width: 500px;
+            background-color: #2b2d8f;
+            position: absolute;
+            top: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #enemy {
+            top: 50px;
+            height: 50px;
+            width: 100px;
+            background-color: #02270b;
+            position: absolute;
+        }
+
+        #player {
+            top: 450px;
+            left: 225px;
+            height: 50px;
+            width: 50px;
+            background-color: #000000;
+            position: absolute;
+        }
+
+        #projectile {
+            top: 400px;
+            left: 250px;
+            height: 20px;
+            width: 5px;
+            background-color: #ff0000;
+            position: absolute;
+            visibility: hidden;
+        }
+
+        #score {
+            color: #fefefe;
+            font-family: 'Times New Roman', Times, Serif;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #enemyCount {
+            color: #fefefe;
+            font-family: 'Times New Roman', Times, Serif;
+             position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+  </style>
+
+</head>
+
+    <body>
+        
+        <div class="square">
+        <div id="enemy"></div>
+        <div id="player"></div>
+        <div id="projectile"></div>
+        </div>
+        <div id="score"></div>
+        <div id="enemyCount">Enemy Counter</div>
+
+    <script>
+
+        let enemy = document.getElementById("enemy");
+        let player = document.getElementById("player");
+        let projectile = document.getElementById("projectile");
+        let scoreElement = document.getElementById("score");
+
+        let x = 0;
+        let y = 0;
+        let dx = 1;
+        let score = 0;
+        let enemyCount = 0;
+        let gameActive = false;
+        let initialX = 0;
+
+            function startGame() {
+                if (gameActive) return;
+
+                gameActive = true;
+                score = 0;
+                enemyCount = 0;
+                updateScore();
+
+                x = 0;
+                y = 50;
+                initialX = 0;
+                enemy.style.visibility = "visible";
+                enemy.style.left = x + "px";
+
+                document.addEventListener("keydown", handleKeyPress);
+                moveEnemy();
+            }
+
+        let playerPosition = 225; 
+
+        document.addEventListener("keydown", handleKeyPress);
+
+            function handleKeyPress(event) {
+                if (!gameActive) return;
+
+                switch (event.code) {
+                    case "ArrowLeft":
+                        movePlayerLeft();
+                    break;
+                    case "ArrowRight":
+                        movePlayerRight();
+                    break;
+                    case "Space":
+                        shootProjectile();
+                    break;
+                }
+            }
+
+            function movePlayerLeft() {
+                if (playerPosition > 0) {
+                    playerPosition -= 10;
+                    player.style.left = playerPosition + "px";
+                }
+            }
+
+            function movePlayerRight() {
+                if (playerPosition < 450) {
+                    playerPosition += 10;
+                    player.style.left = playerPosition + "px";
+                }
+            }
+
+            function moveEnemy() {
+                if (!gameActive) return;
+                    x += dx; 
+                    enemy.style.left = x + "px";
+
+                if (x >= 410) {
+                    enemy.style.visibility = "hidden";
+                    x = initialX; 
+                    enemyCount += 1;
+                    updateEnemyCount();
+
+                if (enemyCount >= 3) {
+                    gameActive = false;
+                    alert("Game Over!");
+                    return;
+                }
+
+                    dx = Math.floor(Math.random() * 4);
+					y = Math.floor(Math.random() * (450 - enemy.offsetHeight)) + 100;
+					enemy.style.top = y + "px";
+                    setTimeout(() => {
+                    enemy.style.visibility = "visible";
+                    requestAnimationFrame(moveEnemy);
+                    }, 1000);
+                } else {
+                    requestAnimationFrame(moveEnemy);
+                }
+            }
+
+            function shootProjectile() {
+                let projectileTop = parseInt(projectile.style.top);
+                if (projectileTop > 0) {
+                    projectile.style.visibility = "visible";
+
+                let playerLeft = parseInt(player.style.left);
+                    projectile.style.left = playerLeft + 22 + "px";
+                    projectile.style.top = projectileTop - 10 + "px";
+
+                if (isCollision()) {
+                    enemy.style.visibility = "hidden";
+                    score += 1;
+                    updateScore();
+
+                    setTimeout(() => {
+                        enemy.style.visibility = "visible";
+                        resetEnemyPosition();
+                    }, 1000);
+                }
+
+                    setTimeout(shootProjectile, 5);
+                } else {
+                    projectile.style.visibility = "hidden";
+                    projectile.style.top = "350px";
+                }
+            }
+
+            function resetEnemyPosition() {
+                x = initialX;
+                enemy.style.left = x + "px";
+                moveEnemy();
+            }
+
+
+            function isCollision() {
+                let projectileRect = projectile.getBoundingClientRect();
+                let enemyRect = enemy.getBoundingClientRect();
+
+                return (
+                    projectileRect.top <= enemyRect.bottom &&
+                    projectileRect.right >= enemyRect.left &&
+                    projectileRect.left <= enemyRect.right
+                );
+            }
+
+            function updateScore() {
+                scoreElement.innerText = "Score: " + score;
+            }
+
+            function updateEnemyCount() {
+                let remaining = 3 - enemyCount;
+                document.getElementById("enemyCount").innerText = "Enemies Passed: " + enemyCount;
+            }
+
+            function getRandomSpeed() {
+                return Math.floor(Math.random() * 4);
+            }
+
+        document.addEventListener("keydown", function (event) {
+            if (event.code === "Space") {
+            startGame();
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
+
