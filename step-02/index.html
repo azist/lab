@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My Game</title>
-        <!--<h1 class ="heading"> Press the button to start </h1>!-->
-        <h1 id ="score"> Score: </h1>
-        <h1 id ="lives"> Lives left: 3  </h1>
-        <h1 id="message"></h1>
-    </head>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Game</title>
+    <!--<h1 class ="heading"> Press the button to start </h1>!-->
+    <h1 id ="score"> Score: </h1>
+    <h1 id ="lives"> Lives left: 3  </h1>
+    <h1 id="message"></h1>
 
     <style>
-
-        html, body {
-        max-width: 100%;
-        overflow-x: hidden;
-        max-height: 100%;
-        overflow-y: hidden
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            max-height: 100%;
+            overflow-y: hidden;
+            background-color: #212121;
         }
 
-        body {background-color: #212121};
-
-        .heading{
+        .heading {
             color: white;
         }
 
-        #message{
+        #message {
             font-family: Arial, Helvetica, sans-serif;
-            color:red;
+            color: red;
             position: absolute;
             font-size: 300px;
             z-index: 3;
-            top:200px;
+            top: 200px;
             left: 300px;
-            -webkit-text-stroke: 10px black; 
+            -webkit-text-stroke: 10px black;
         }
 
-
-        #start_button{
+        #start_button {
             height: 75px;
             width: 75px;
             background-color: #c91838;
@@ -47,296 +45,300 @@
             left: 1162.5px;
         }
 
-        .heading{
+        .heading {
             font-family: 'Courier New', Courier, monospace;
             position: relative;
             left: 950px;
             color: white;
         }
 
-
-        #score{
+        #score {
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
-            top: 100px;
-            left: 950px;
+            top: 5%;
+            left: 35%;
             color: white;
         }
 
-        #lives{
+        #lives {
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
-            top: 100px;
-            left: 1300px;
+            top: 5%;
+            left: 50%;
             color: white;
         }
 
-        #sky{
-            height: 800px;
-            width: 800px;
+        #sky {
+            height: 80%;
+            width: 50%;
             background-color: skyblue;
             position: absolute;
-            top: 200px;
-            left: 800px;
-            border-radius: 2.5%;}
+            left: 25%;
+            top: 15%;
+            border-radius: 2.5%;
+        }
 
-        #Border{
-            height: 800px;
-            width: 85px;
+        #Border {
+            height: 80%;
+            width: 5%;
             background-color: #212121;
             position: absolute;
-            top: 200px;
-            left: 715px;
+            left: 20%;
+            top: 15%;
             z-index: 2;
         }
 
-        #enemy{
+        #enemy {
             height: 30px;
             width: 75px;
-            background-color: #616161;
+            background-color: #d11818;
             position: absolute;
-            top: 250px;
-            left: 720px;
+            left: 20%;
+            top: 15%;
             z-index: 1;
         }
 
-        #player{
+        #player {
             height: 50px;
             width: 50px;
             background-color: #080808;
             position: absolute;
-            top: 950px;
-            left: 800px;
+            bottom: 5%;
+            left: 49%;
         }
+
         .projectile {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        background-color: red;
-        border-radius: 0%;
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 0%;
         }
 
-        #divRect{
-        background: #f02070;
-        display: block;
-        position: absolute;
-        width: 25px;
-        height: 25px;
+        #divRect {
+            background: #f02070;
+            display: block;
+            position: absolute;
+            width: 25px;
+            height: 25px;
         }
 
-        #cloud1{ 
-            margin-top:70px;
-            width:150px;
-            height:60px;
-            background:#ECEFF1;
-            box-shadow: 6px 4px rgba(0,0,0,0.2);
-            border-radius:100px;
+        #cloud1 {
+            width: 6%;
+            height: 5%;
+            background: #ECEFF1;
+            box-shadow: 6px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 100px;
             opacity: 60%;
             position: absolute;
-            top: 300px;
-            left: 1100px;
-
+            top: 25%;
+            left: 40%;
         }
-        #cloud2{ 
-            margin-top:70px;
-            width:150px;
-            height:60px;
-            background:#ECEFF1;
-            box-shadow: 7px 7px rgba(0,0,0,0.2);
-            border-radius:100px;
+
+        #cloud2 {
+            width: 6%;
+            height: 5%;
+            background: #ECEFF1;
+            box-shadow: 7px 7px rgba(0, 0, 0, 0.2);
+            border-radius: 100px;
             opacity: 50%;
             position: absolute;
-            top: 600px;
-            left: 1300px;
-
+            top: 48%;
+            left: 54%;
         }
-        #cloud3{ 
-            margin-top:70px;
-            width:150px;
-            height:60px;
-            background:#ECEFF1;
-            box-shadow: 8px 9px rgba(0,0,0,0.2);
-            border-radius:100px;
+
+        #cloud3 {
+            width: 6%;
+            height: 5%;
+            background: #ECEFF1;
+            box-shadow: 8px 9px rgba(0, 0, 0, 0.2);
+            border-radius: 100px;
             opacity: 70%;
             position: absolute;
-            top: 700px;
-            left: 850px;
-
+            top: 62%;
+            left: 35%;
         }
-        #cloud4{ 
-            margin-top:70px;
-            width:150px;
-            height:60px;
-            background:#ECEFF1;
-            box-shadow: 8px 9px rgba(0,0,0,0.2);
-            border-radius:100px;
-            opacity: 55%;
+
+        #cloud4 {
+            width: 6%;
+            height: 5%;
+            background: #ECEFF1;
+            box-shadow: 8px 9px rgba(0, 0, 0, 0.2);
+            border-radius: 100px;
+            opacity: 70%;
             position: absolute;
-            top: 175px;
-            left: 1400px;
-
+            top: 20%;
+            left: 60%;
         }
-        #cloud5{ 
-            margin-top:70px;
-            width:150px;
-            height:60px;
-            background:#ECEFF1;
-            box-shadow: 6px 4px rgba(0,0,0,0.2);
-            border-radius:100px;
+
+        #cloud5 {
+            width: 6%;
+            height: 5%;
+            background: #ECEFF1;
+            box-shadow: 6px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 100px;
             opacity: 60%;
             position: absolute;
-            top: 450px;
-            left: 900px;
-
+            top: 40%;
+            left: 32%;
         }
     </style>
-    <body>
-        <div id="sky" class="canvas"></div>
-        <div id="Border"></div>
-        <div id="player"></div>
-        <div id="projectile-container"></div>
-        <div id="enemy"></div>
-        <!--<button id="start_button" onclick="slice"></button>!-->
-        <div id="cloud1"></div>
-        <div id="cloud2"></div>
-        <div id="cloud3"></div>
-        <div id="cloud4"></div>
-        <div id="cloud5"></div>   
-        
-    <script>
-        let player = document.getElementById('player');
-        let player_variables = {
-            Width: player.offsetWidth, 
-            X: document.getElementById(player.style.left),
-            Y: document.getElementById(player.style.top),
-            }
-        let skyWidth = document.getElementById('sky').offsetWidth;
-        let enemy = document.getElementById('enemy');
-        let enemy_variables = {
-            x: 720,
-            y: (Math.floor(Math.random() * 600) + 300),
-            speed: (Math.floor(Math.random() * 4)),
-        }
-        let projectile = document.getElementById('projectile');
-        let game_variables = {
-            initialLeft:(skyWidth * 1.5) - player_variables.Width / 2,
-            maxLeft: (skyWidth * 2 ) - player_variables.Width,
-            minLeft: skyWidth,
-            count: 0,
-            score: 0,
-            lives: 3,
-            game_lost: false
-        }
+</head>
+<body>
+<div id="sky" class="canvas"></div>
+<div id="Border"></div>
+<div id="player"></div>
+<div id="projectile-container"></div>
+<div id="enemy"></div>
+<!--<button id="start_button" onclick="slice"></button>!-->
+<div id="cloud1"></div>
+<div id="cloud2"></div>
+<div id="cloud3"></div>
+<div id="cloud4"></div>
+<div id="cloud5"></div>
 
-        player.style.left = game_variables.initialLeft + 'px';
+<script>
+    let player = document.getElementById('player');
+    let enemy = document.getElementById('enemy');
+    let projectile = document.getElementById('projectile');
+    let player_variables = {
+        width: player.offsetWidth,
+        x: parseInt(player.style.left),
+        y: parseInt(player.style.top),
+    };
+    let skyWidth = document.getElementById('sky').offsetWidth;
 
-        // Establishing Keystroke input
+    let sky_variables = {
+        width: document.getElementById('sky').offsetWidth,
+        left: document.getElementById('sky').offsetLeft,
+        right: document.getElementById('sky').offsetRight,
+        height: document.getElementById('sky').offsetHeight,
+    };
 
-        document.addEventListener('keydown', function(event) {
+    let enemy_variables = {
+        width: document.getElementById('enemy').offsetWidth,
+        speed: Math.floor(Math.random() * 4),
+        x: parseInt(enemy.style.offsetLeft),
+        y: Math.floor(Math.random() * 600) + 300,
+    };
+
+    let game_variables = {
+        initialLeft: skyWidth * 1.5 + player_variables.width,
+        maxLeft: skyWidth * 2 - player_variables.width,
+        minLeft: skyWidth,
+        count: 0,
+        score: 0,
+        lives: 3,
+        game_lost: false,
+    };
+
+    player.style.left = player_variables.x + 'px';
+
+    // Establishing Keystroke input
+    document.addEventListener('keydown', function (event) {
         let currentLeft = parseInt(player.style.left) || 0;
 
         if (event.key === 'ArrowLeft' && currentLeft > game_variables.minLeft) {
             player.style.left = currentLeft - 30 + 'px';
         }
-        
+
         if (event.key === 'ArrowRight' && currentLeft < game_variables.maxLeft) {
-            player.style.left = currentLeft + 30 + 'px';    
-        }})
-
-        document.addEventListener('keydown', function(event) {
-        if (event.key === ' ') {shootProjectile();}
+            player.style.left = currentLeft + 30 + 'px';
         }
-        );
+    });
 
-        // Establishing a function for shooting projectiles
+    document.addEventListener('keydown', function (event) {
+        if (event.key === ' ') {
+            shootProjectile();
+        }
+    });
 
-        function shootProjectile() {
-            const player = document.getElementById('player');
-            const projectileContainer = document.getElementById('projectile-container');
+    // Establishing a function for shooting projectiles
+    function shootProjectile() {
+        const player = document.getElementById('player');
+        const projectileContainer = document.getElementById('projectile-container');
 
-            const projectile = document.createElement('div');
-                projectile.classList.add('projectile');
-                projectile.style.left = player.offsetLeft + player.offsetWidth / 2 - 5 + 'px';
-                projectile.style.top = player.offsetTop
+        const projectile = document.createElement('div');
+        projectile.classList.add('projectile');
+        projectile.style.left = player.offsetLeft + player.offsetWidth / 2 - 5 + 'px';
+        projectile.style.top = player.offsetTop + 'px';
 
-                    projectileContainer.appendChild(projectile);
+        projectileContainer.appendChild(projectile);
 
-            const projectileAnimation = projectile.animate(
-                [
+        const projectileAnimation = projectile.animate(
+            [
                 { top: window.innerHeight + 'px' },
                 { top: '0px' }
-                ],
-                {  
+            ],
+            {
                 duration: 400,
                 iterations: 1
-                });
+            }
+        );
 
-            projectileAnimation.onfinish = function() {
+        projectileAnimation.onfinish = function () {
+            projectile.remove();
+        };
+    }
+
+    function recall() {
+        enemy_variables.x += enemy_variables.speed;
+        if (enemy_variables.x < 700 || enemy_variables.x > 1525) {
+            game_variables.lives -= 1;
+
+            document.getElementById('lives').innerHTML = 'Lives Left: ' + game_variables.lives;
+
+            enemy_variables.x = sky_variables.left;
+            enemy_variables.y = Math.floor(Math.random() * 600) + 300;
+            enemy_variables.speed = Math.floor(Math.random() * 4);
+            game_variables.count += 1;
+            console.log(game_variables.count);
+        }
+        if (game_variables.count >= 3) {
+            enemy_variables.speed *= 0;
+            document.getElementById('message').innerHTML = 'GAME OVER';
+        }
+    }
+
+    function movement() {
+        enemy.style.left = enemy_variables.x + 'px';
+        enemy.style.top = enemy_variables.y + 'px';
+    }
+
+    function slice() {
+        recall();
+        movement();
+        checkCollision();
+        setTimeout(slice, 1);
+    }
+
+    function checkCollision() {
+        let projectiles = document.getElementsByClassName('projectile');
+
+        for (let i = 0; i < projectiles.length; i++) {
+            let projectile = projectiles[i];
+
+            let projectileRect = projectile.getBoundingClientRect();
+            let enemyRect = enemy.getBoundingClientRect();
+
+            if (
+                projectileRect.left < enemyRect.right &&
+                projectileRect.right > enemyRect.left &&
+                projectileRect.top < enemyRect.bottom &&
+                projectileRect.bottom > enemyRect.top
+            ) {
+                // Collision occurred
                 projectile.remove();
-            };
+                enemy_variables.x = 720;
+                enemy_variables.y = Math.floor(Math.random() * 600) + 300;
+                enemy_variables.speed = Math.floor(Math.random() * 4);
+                game_variables.score += 1;
+                document.getElementById('score').innerHTML = 'Score: ' + game_variables.score;
             }
+        }
+    }
 
-            function recall(){
-                enemy_variables.x+=enemy_variables.speed;
-                if (enemy_variables.x < 700 || enemy_variables.x > 1525){
-                    game_variables.lives -= 1
-                    
-                    document.getElementById("lives").innerHTML = ( "Lives Left: " + game_variables.lives);
-
-                    enemy_variables.x = 720;
-                    enemy_variables.y = (Math.floor(Math.random() * 600) + 300);
-                    enemy_variables.speed = (Math.floor(Math.random() * 4));
-                    game_variables.count += 1;
-                    console.log(game_variables.count);
-                    }
-                if (game_variables.count >= 3){
-                    enemy_variables.speed*=0;
-                    document.getElementById("message").innerHTML = ("GAME OVER");  
-                }
-            }
-            
-            function movement(){
-                enemy.style.left = (enemy_variables.x + "px");
-                enemy.style.top = (enemy_variables.y + "px");
-            }
-            
-            function slice(){
-                recall();
-                movement();
-                checkCollision();   
-                setTimeout(slice, 1);
-            }
-
-            function checkCollision() {
-                let projectiles = document.getElementsByClassName('projectile');
-                
-                for (let i = 0; i < projectiles.length; i++) {
-                    let projectile = projectiles[i];
-                    
-                    let projectileRect = projectile.getBoundingClientRect();
-                    let enemyRect = enemy.getBoundingClientRect();
-                    
-                    if (
-                        projectileRect.left < enemyRect.right &&
-                        projectileRect.right > enemyRect.left &&
-                        projectileRect.top < enemyRect.bottom &&
-                        projectileRect.bottom > enemyRect.top
-                    ) {
-                        // Collision occurred
-                        projectile.remove();
-                        enemy_variables.x = 720;
-                        enemy_variables.y = (Math.floor(Math.random() * 600) + 300);
-                        enemy_variables.speed = (Math.floor(Math.random() * 4));
-                        game_variables.score += 1;
-                        document.getElementById("score").innerHTML = ( "Score: " + game_variables.score);
-                    }
-                }
-            }
-            
-            slice();     
-       
-    </script>
-    <body>
+    slice();
+</script>
+</body>
 </html>
-
-
