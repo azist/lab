@@ -211,14 +211,14 @@
     let sky_variables = {
         width: document.getElementById('sky').offsetWidth,
         left: document.getElementById('sky').offsetLeft,
-        right: document.getElementById('sky').offsetRight,
+        right: ((document.getElementById('sky').offsetLeft) * 3) - enemy.offsetWidth,
         height: document.getElementById('sky').offsetHeight,
     };
 
     let enemy_variables = {
-        width: document.getElementById('enemy').offsetWidth,
-        speed: Math.floor(Math.random() * 4),
-        x: parseInt(enemy.style.offsetLeft),
+        width: enemy.offsetWidth,
+        speed: Math.floor(Math.random() * 2000 + 1000),
+        x: document.getElementById('enemy').offsetLeft,
         y: Math.floor(Math.random() * 600) + 300,
     };
 
@@ -281,9 +281,16 @@
         };
     }
 
-    function recall() {
+    function moveEnemy() {
         enemy_variables.x += enemy_variables.speed;
-        if (enemy_variables.x < 700 || enemy_variables.x > 1525) {
+        enemy.style.left = enemy_variables.x + 'px';
+        }
+
+        
+
+    function recall() {
+        
+        if (enemy_variables.x < sky_variables.left || enemy_variables.x > sky_variables.right) {
             game_variables.lives -= 1;
 
             document.getElementById('lives').innerHTML = 'Lives Left: ' + game_variables.lives;
@@ -305,11 +312,14 @@
         enemy.style.top = enemy_variables.y + 'px';
     }
 
+    setInterval(moveEnemy, 1);
+
     function slice() {
         recall();
         movement();
         checkCollision();
         setTimeout(slice, 1);
+        
     }
 
     function checkCollision() {
