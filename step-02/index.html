@@ -201,12 +201,12 @@
     let player = document.getElementById('player');
     let enemy = document.getElementById('enemy');
     let projectile = document.getElementById('projectile');
+    
     let player_variables = {
         width: player.offsetWidth,
         x: parseInt(player.style.left),
         y: parseInt(player.style.top),
     };
-    let skyWidth = document.getElementById('sky').offsetWidth;
 
     let sky_variables = {
         width: document.getElementById('sky').offsetWidth,
@@ -223,16 +223,14 @@
     };
 
     let game_variables = {
-        initialLeft: skyWidth * 1.5 + player_variables.width,
-        maxLeft: skyWidth * 2 - player_variables.width,
-        minLeft: skyWidth,
+        initialLeft: sky_variables.width + player_variables.width,
+        maxLeft: sky_variables.width * 1.5 - player_variables.width,
+        minLeft: sky_variables.width / 2 + 3,
         count: 0,
         score: 0,
         lives: 3,
         game_lost: false,
     };
-
-    player.style.left = player_variables.x + 'px';
 
     // Establishing Keystroke input
     document.addEventListener('keydown', function (event) {
@@ -240,10 +238,12 @@
 
         if (event.key === 'ArrowLeft' && currentLeft > game_variables.minLeft) {
             player.style.left = currentLeft - 30 + 'px';
+            console.log("Left")
         }
 
         if (event.key === 'ArrowRight' && currentLeft < game_variables.maxLeft) {
             player.style.left = currentLeft + 30 + 'px';
+            console.log("Right")
         }
     });
 
@@ -271,7 +271,7 @@
                 { top: '0px' }
             ],
             {
-                duration: 400,
+                duration: 500,
                 iterations: 1
             }
         );
