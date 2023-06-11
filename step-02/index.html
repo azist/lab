@@ -6,6 +6,7 @@
     <!--<h1 class ="heading"> Press the button to start </h1>!-->
     <h1 id ="score"> Score: </h1>
     <h1 id ="lives"> Lives left: 3  </h1>
+    <h1 id ="instructions"> Press Button to Start</h1>
     <h1 id="message"></h1>
 
     <style>
@@ -34,14 +35,14 @@
         }
 
         #start_button {
-            height: 75px;
-            width: 75px;
+            height: 6%;
+            width: 3%;
             background-color: #c91838;
             border-radius: 50%;
             border-color: rgb(0, 0, 0);
             border-width: 10px;
             position: absolute;
-            top: 100px;
+            top: 5%;
             left: 1162.5px;
         }
 
@@ -57,6 +58,16 @@
             position: absolute;
             top: 5%;
             left: 35%;
+            font-size: 200%;
+            color: white;
+        }
+
+        #instructions {
+            font-family: 'Courier New', Courier, monospace;
+            position: absolute;
+            top: 10.5%;
+            left: 44%;
+            font-size: 150%;
             color: white;
         }
 
@@ -64,7 +75,8 @@
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
             top: 5%;
-            left: 50%;
+            left: 55%;
+            font-size: 200%;
             color: white;
         }
 
@@ -78,7 +90,7 @@
             border-radius: 2.5%;
         }
 
-        #Border {
+        #border {
             height: 80%;
             width: 5%;
             background-color: #212121;
@@ -94,7 +106,7 @@
             background-color: #d11818;
             position: absolute;
             left: 20%;
-            top: 15%;
+            top: 40%;
             z-index: 1;
         }
 
@@ -190,7 +202,7 @@
 <div id="player"></div>
 <div id="projectile-container"></div>
 <div id="enemy"></div>
-<!--<button id="start_button" onclick="slice"></button>!-->
+<button id="start_button" onclick="slice"></button>
 <div id="cloud1"></div>
 <div id="cloud2"></div>
 <div id="cloud3"></div>
@@ -233,19 +245,21 @@
     };
 
     // Establishing Keystroke input
+
     document.addEventListener('keydown', function (event) {
-        let currentLeft = parseInt(player.style.left) || 0;
+        let currentLeft = parseInt(player.style.left) || sky_variables.width;
 
         if (event.key === 'ArrowLeft' && currentLeft > game_variables.minLeft) {
-            player.style.left = currentLeft - 30 + 'px';
-            console.log("Left")
+            player.style.left = (currentLeft - 30) + 'px';
+            console.log("Left");
         }
 
         if (event.key === 'ArrowRight' && currentLeft < game_variables.maxLeft) {
-            player.style.left = currentLeft + 30 + 'px';
-            console.log("Right")
+            player.style.left = (currentLeft + 30) + 'px';
+            console.log("Right");
         }
     });
+
 
     document.addEventListener('keydown', function (event) {
         if (event.key === ' ') {
@@ -339,7 +353,7 @@
             ) {
                 // Collision occurred
                 projectile.remove();
-                enemy_variables.x = 720;
+                enemy_variables.x = sky_variables.left;
                 enemy_variables.y = Math.floor(Math.random() * 600) + 300;
                 enemy_variables.speed = Math.floor(Math.random() * 4);
                 game_variables.score += 1;
@@ -348,7 +362,13 @@
         }
     }
 
-    slice();
+
+    function startGame() {
+            slice();
+            recall();
+        }
+
+    document.getElementById('start_button').addEventListener('click', startGame);
 </script>
 </body>
-</html>
+</html>a
