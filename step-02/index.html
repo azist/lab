@@ -92,10 +92,10 @@
 
         #border {
             height: 80%;
-            width: 5%;
+            width: 10%;
             background-color: #212121;
             position: absolute;
-            left: 20%;
+            left: 15%;
             top: 15%;
             z-index: 2;
         }
@@ -198,11 +198,11 @@
 </head>
 <body>
 <div id="sky" class="canvas"></div>
-<div id="Border"></div>
+<div id="border"></div>
 <div id="player"></div>
 <div id="projectile-container"></div>
 <div id="enemy"></div>
-<button id="start_button" onclick="slice"></button>
+<button id="start_button"></button>
 <div id="cloud1"></div>
 <div id="cloud2"></div>
 <div id="cloud3"></div>
@@ -229,7 +229,7 @@
 
     let enemy_variables = {
         width: enemy.offsetWidth,
-        speed: Math.floor(Math.random() * 2000 + 1000),
+        speed: Math.floor(Math.random() * 5 + 1),
         x: document.getElementById('enemy').offsetLeft,
         y: Math.floor(Math.random() * 600) + 300,
     };
@@ -250,12 +250,12 @@
         let currentLeft = parseInt(player.style.left) || sky_variables.width;
 
         if (event.key === 'ArrowLeft' && currentLeft > game_variables.minLeft) {
-            player.style.left = (currentLeft - 30) + 'px';
+            player.style.left = (currentLeft - 50) + 'px';
             console.log("Left");
         }
 
         if (event.key === 'ArrowRight' && currentLeft < game_variables.maxLeft) {
-            player.style.left = (currentLeft + 30) + 'px';
+            player.style.left = (currentLeft + 50) + 'px';
             console.log("Right");
         }
     });
@@ -295,45 +295,48 @@
         };
     }
 
+
     function moveEnemy() {
-        enemy_variables.x += enemy_variables.speed;
-        enemy.style.left = enemy_variables.x + 'px';
-        }
+  enemy_variables.x += enemy_variables.speed;
 
-        
+  if (enemy_variables.x < sky_variables.left) {
+    enemy_variables.speed = Math.floor(Math.random() * 3) + 1;
+    enemy_variables.x = sky_variables.left;
+    enemy_variables.y = Math.floor(Math.random() * 600) + 300;
+  }
 
-    function recall() {
-        
-        if (enemy_variables.x < sky_variables.left || enemy_variables.x > sky_variables.right) {
-            game_variables.lives -= 1;
-
-            document.getElementById('lives').innerHTML = 'Lives Left: ' + game_variables.lives;
+  if (enemy_variables.x > sky_variables.right) {
+    enemy_variables.speed = Math.floor(Math.random() * 3) + 1;
+    enemy_variables.x = sky_variables.left;
+    enemy_variables.y = Math.floor(Math.random() * 600) + 300;
+    game_variables.lives -= 1;
+    document.getElementById('lives').innerHTML = 'Lives left: ' + game_variables.lives;
 
             enemy_variables.x = sky_variables.left;
             enemy_variables.y = Math.floor(Math.random() * 600) + 300;
             enemy_variables.speed = Math.floor(Math.random() * 4);
             game_variables.count += 1;
             console.log(game_variables.count);
-        }
-        if (game_variables.count >= 3) {
-            enemy_variables.speed *= 0;
-            document.getElementById('message').innerHTML = 'GAME OVER';
-        }
-    }
+  }
+}
 
     function movement() {
         enemy.style.left = enemy_variables.x + 'px';
         enemy.style.top = enemy_variables.y + 'px';
     }
 
-    setInterval(moveEnemy, 1);
+    setInterval(moveEnemy, 5);
 
-    function slice() {
-        recall();
-        movement();
-        checkCollision();
-        setTimeout(slice, 1);
-        
+    function recall() {
+        if (game_variables.count >= 3) {
+            enemy_variables.speed *= 0;
+            document.getElementById('message').innerHTML = 'GAME OVER';
+            let element = document.getElementById("enemy");
+            element.remove();
+            let end_text = document.getElementById('instructions')
+            end_text.innerHTML = 'Refresh page to restart'
+            
+        }
     }
 
     function checkCollision() {
@@ -355,7 +358,7 @@
                 projectile.remove();
                 enemy_variables.x = sky_variables.left;
                 enemy_variables.y = Math.floor(Math.random() * 600) + 300;
-                enemy_variables.speed = Math.floor(Math.random() * 4);
+                enemy_variables.speed += Math.floor(Math.random() * 5 + 1);
                 game_variables.score += 1;
                 document.getElementById('score').innerHTML = 'Score: ' + game_variables.score;
             }
@@ -364,11 +367,25 @@
 
 
     function startGame() {
-            slice();
-            recall();
-        }
+        moveEnemy()
+        slice();
+        recall();
+        enemy_variables.x = sky_variables.left;
+        startButton.remove();
+        document.getElementById('instructions').innerHTML = ''
 
-    document.getElementById('start_button').addEventListener('click', startGame);
+    }
+
+    function slice() {
+        recall();
+        movement();
+        checkCollision();
+        requestAnimationFrame(slice);
+
+    }
+
+    let startButton = document.getElementById('start_button');
+    startButton.addEventListener('click', startGame);
 </script>
 </body>
-</html>a
+</html>
