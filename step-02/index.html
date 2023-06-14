@@ -105,32 +105,60 @@
             top: 15%;
             z-index: 2;
         }
-
-        #enemy {
-            height: 30px;
-            width: 75px;
-            background-color: #d11818;
+        
+        #border2 {
+            height: 5%;
+            width: 50%;
+            background-color: #212121;
             position: absolute;
-            left: 20%;
-            top: 40%;
-            z-index: 1;
+            left: 25%;
+            top: 95%;
+            z-index: 0;
         }
 
         #player {
             height: 50px;
             width: 50px;
-            background-color: #080808;
+            background-color: skyblue;
             position: absolute;
             bottom: 5%;
-            left: 49%;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
+        #plane {
+            height: 75px;
+            width: 75px;
+            position: absolute;
+            bottom: 10%;
+            left: 20%;
+        }
+        
+        #enemy {
+            height: 30px;
+            width: 75px;
+            background-color: tra;
+            position: absolute;
+            left: 20%;
+            top: 20%;
+            z-index: 1;
+        }
+
+        #enemy_plane{
+            height: 75px;
+            width: 75px;
+            position: absolute;
+            bottom: 1%;
+            left: 1%;
+            transform: rotate(90deg);
+        } 
         .projectile {
             position: absolute;
             width: 10px;
             height: 10px;
             background-color: red;
-            border-radius: 0%;
+            border-radius: 50%;
+            
         }
 
         #divRect {
@@ -215,9 +243,14 @@
 <body>
 <div id="sky" class="canvas"></div>
 <div id="border"></div>
-<div id="player"></div>
+<div id="border2"></div>
+<div id="player">
+    <img src="https://openseauserdata.com/files/bdb79b1388a155eeae5d11dba03d31e6.png" id = "plane">
+</div>
 <div id="projectile-container"></div>
-<div id="enemy"></div>
+<div id="enemy">
+    <img src="https://openseauserdata.com/files/2cc66acef15f8a6772bd2d8605be3b10.png" id = "enemy_plane">
+</div>
 <button id="start_button"></button>
 <div id="cloud1"></div>
 <div id="cloud2"></div>
@@ -278,7 +311,7 @@
         audio.play();
         let loopStartTime = 0;
         let loopEndTime = 3;
-        audio.volume = 0.5;
+        audio.volume = 0.25;
         audio.addEventListener('timeupdate', function() {
         if (audio.currentTime >= loopEndTime) {
             audio.currentTime = loopStartTime;
@@ -292,6 +325,7 @@
         audio.play();
         let loopStartTime = 0;
         let loopEndTime = 24;
+        audio.volume = 0.45;
         audio.addEventListener('timeupdate', function() {
         if (audio.currentTime >= loopEndTime) {
             audio.currentTime = loopStartTime;
@@ -347,27 +381,27 @@
             ],
             {
                 duration: 500,
-                iterations: 1
+                iterations: 1 
             }
         );
 
         projectileAnimation.onfinish = function () {
             projectile.remove();
         };
+        
     }
-
 
     function moveEnemy() {
   enemy_variables.x += enemy_variables.speed;
 
   if (enemy_variables.x < sky_variables.left) {
-    enemy_variables.speed = Math.floor(Math.random() * 3) + 1;
+    enemy_variables.speed == Math.floor(Math.random() * 3) + 1;
     enemy_variables.x = sky_variables.left;
     enemy_variables.y = Math.floor(Math.random() * 600) + 300;
-  }
+        }
 
   if (enemy_variables.x > sky_variables.right) {
-    enemy_variables.speed = Math.floor(Math.random() * 3) + 1;
+    enemy_variables.speed == Math.floor(Math.random() * 3) + 1;
     enemy_variables.x = sky_variables.left;
     enemy_variables.y = Math.floor(Math.random() * 600) + 300;
     game_variables.lives -= 1;
@@ -378,8 +412,10 @@
             enemy_variables.speed = Math.floor(Math.random() * 4);
             game_variables.count += 1;
             console.log(game_variables.count);
-  }
-}
+        }
+    }
+
+    
 
     function movement() {
         enemy.style.left = enemy_variables.x + 'px';
@@ -436,9 +472,6 @@
         }
     }
 
-
-
-
     function displayCollisionImage(rect) {
         var collisionImage = document.createElement('img');
         collisionImage.src = "https://media1.giphy.com/media/26BRx71hqRexBe7Wo/giphy.gif?cid=6c09b952wqt5y75be88hpcwbiwra9ihyagveg8b3b0vdyjep&ep=v1_stickers_related&rid=giphy.gif&ct=s";
@@ -452,8 +485,7 @@
             collisionImage.remove();
         }, 500);
     }, 1000);
-}
-
+    }
 
     function startGame() {
         moveEnemy()
