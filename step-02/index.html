@@ -274,50 +274,53 @@
     };
 
 
-    function sfx_1() {
-        let audio = document.getElementById("sfx_1");
-        audio.currentTime = 0; 
-        audio.play();
-    }
-    function sfx_2() {
-        let audio = document.getElementById("sfx_2");
-        audio.currentTime = 0; 
-        audio.play();
-    }
-    function sfx_3(){
-    let audio = document.getElementById('sfx_3');
-        audio.loop = true;
-        audio.autoplay = true;
-        audio.play();
-        let loopStartTime = 0;
-        let loopEndTime = 3;
-        audio.volume = 0.25;
-        audio.addEventListener('timeupdate', function() {
-        if (audio.currentTime >= loopEndTime) {
-            audio.currentTime = loopStartTime;
+    function sound_fx(number){
+        if (number == 1){
+            let audio = document.getElementById("sfx_1");
+            audio.currentTime = 0; 
+            audio.play();
         }
-        });}
 
-    function sfx_4() {
-        let audio = document.getElementById('sfx_4');
-        audio.loop = true;
-        audio.autoplay = true;
-        audio.play();
-        let loopStartTime = 0;
-        let loopEndTime = 24;
-        audio.volume = 0.45;
-        audio.addEventListener('timeupdate', function() {
-        if (audio.currentTime >= loopEndTime) {
-            audio.currentTime = loopStartTime;
+        if (number == 2){
+            let audio = document.getElementById("sfx_2");
+            audio.currentTime = 0; 
+            audio.play();
         }
-        });}
-    function sfx_5() {
-        let audio = document.getElementById("sfx_5");
-        audio.currentTime = 0; 
-        audio.play();
-    }    
+
+        if (number == 3){
+            let audio = document.getElementById('sfx_3');
+            audio.loop = true;
+            audio.autoplay = true;
+            audio.play();
+            let loopStartTime = 0;
+            let loopEndTime = 3;
+            audio.volume = 0.25;
+            audio.addEventListener('timeupdate', function() {
+            if (audio.currentTime >= loopEndTime) {
+                audio.currentTime = loopStartTime;
+        }})}
 
 
+        if (number == 4){
+            let audio = document.getElementById('sfx_4');
+            audio.loop = true;
+            audio.autoplay = true;
+            audio.play();
+            let loopStartTime = 0;
+            let loopEndTime = 24;
+            audio.volume = 0.45;
+            audio.addEventListener('timeupdate', function() {
+            if (audio.currentTime >= loopEndTime) {
+                audio.currentTime = loopStartTime;
+        }})}
+
+        if (number == 5){
+            let audio = document.getElementById("sfx_5");
+            audio.currentTime = 0; 
+            audio.play();
+        }
+
+    }
     // Establishing Keystroke input
 
     document.addEventListener('keydown', function (event) {
@@ -338,7 +341,7 @@
     document.addEventListener('keydown', function (event) {
         if (event.key === ' ') {
             shootProjectile();
-            sfx_1();
+            sound_fx(1);
         }
     });
 
@@ -416,7 +419,7 @@
             let sfx_4 = document.getElementById("sfx_4");
             sfx_3.remove();
             sfx_4.remove();
-            sfx_5();
+            sound_fx(5)();
 
 
             
@@ -442,7 +445,7 @@
                 projectile.remove();
 
                 displayCollisionImage(projectileRect);
-                sfx_2();
+                sound_fx(2);
                 enemy_variables.x = sky_variables.left;
                 enemy_variables.y = Math.floor(Math.random() * 600) + 300;
                 enemy_variables.speed += Math.floor(Math.random() * 5 + 1);
@@ -474,8 +477,8 @@
         enemy_variables.x = sky_variables.left;
         startButton.remove();
         document.getElementById('instructions').innerHTML = ''
-        sfx_3();
-        sfx_4();
+        sound_fx(3);
+        sound_fx(4);
 
 
     }
