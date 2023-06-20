@@ -117,41 +117,25 @@
         }
 
         #player {
-            height: 50px;
-            width: 50px;
-            background-color: skyblue;
+            height: 75px;
+            width: 75px;
+            background-image: url("https://openseauserdata.com/files/bdb79b1388a155eeae5d11dba03d31e6.png");
+            background-size: cover;
             position: absolute;
             bottom: 5%;
             left: 50%;
-            transform: translateX(-50%);
         }
-
-        #plane {
+        #enemy {
             height: 75px;
             width: 75px;
-            position: absolute;
-            bottom: 10%;
-            left: 20%;
-        }
-        
-        #enemy {
-            height: 30px;
-            width: 75px;
-            background-color: tra;
+            background-image: url("https://openseauserdata.com/files/2cc66acef15f8a6772bd2d8605be3b10.png");
+            background-size: cover;
             position: absolute;
             left: 20%;
             top: 20%;
+            rotate: 90deg;
             z-index: 1;
         }
-
-        #enemy_plane{
-            height: 75px;
-            width: 75px;
-            position: absolute;
-            bottom: 1%;
-            left: 1%;
-            transform: rotate(90deg);
-        } 
         .projectile {
             position: absolute;
             width: 10px;
@@ -244,13 +228,9 @@
 <div id="sky" class="canvas"></div>
 <div id="border"></div>
 <div id="border2"></div>
-<div id="player">
-    <img src="https://openseauserdata.com/files/bdb79b1388a155eeae5d11dba03d31e6.png" id = "plane">
-</div>
+<div id="player"></div>
 <div id="projectile-container"></div>
-<div id="enemy">
-    <img src="https://openseauserdata.com/files/2cc66acef15f8a6772bd2d8605be3b10.png" id = "enemy_plane">
-</div>
+<div id="enemy"></div>
 <button id="start_button"></button>
 <div id="cloud1"></div>
 <div id="cloud2"></div>
