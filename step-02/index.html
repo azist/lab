@@ -239,34 +239,31 @@
 <div id="cloud5"></div>
 
 <script>
-    let player = document.getElementById('player');
-    let enemy = document.getElementById('enemy');
-    let projectile = document.getElementById('projectile');
     
-    let player_variables = {
+    let user = {
         width: player.offsetWidth,
         x: parseInt(player.style.left),
         y: parseInt(player.style.top),
     };
 
-    let sky_variables = {
+    let game_canvas = {
         width: document.getElementById('sky').offsetWidth,
         left: document.getElementById('sky').offsetLeft,
         right: ((document.getElementById('sky').offsetLeft) * 3) - enemy.offsetWidth,
         height: document.getElementById('sky').offsetHeight,
     };
 
-    let enemy_variables = {
+    let enemy_plane = {
         width: enemy.offsetWidth,
         speed: Math.floor(Math.random() * 5 + 1),
         x: document.getElementById('enemy').offsetLeft,
         y: Math.floor(Math.random() * 600) + 300,
     };
 
-    let game_variables = {
-        initialLeft: sky_variables.width + player_variables.width,
-        maxLeft: sky_variables.width * 1.5 - player_variables.width,
-        minLeft: sky_variables.width / 2 + 3,
+    let game = {
+        initialLeft: game_canvas.width + user.width,
+        maxLeft: game_canvas.width * 1.5 - user.width,
+        minLeft: game_canvas.width / 2 + 3,
         count: 0,
         score: 0,
         lives: 3,
@@ -324,14 +321,14 @@
     // Establishing Keystroke input
 
     document.addEventListener('keydown', function (event) {
-        let currentLeft = parseInt(player.style.left) || sky_variables.width;
+        let currentLeft = parseInt(player.style.left) || game_canvas.width;
 
-        if (event.key === 'ArrowLeft' && currentLeft > game_variables.minLeft) {
+        if (event.key === 'ArrowLeft' && currentLeft > game.minLeft) {
             player.style.left = (currentLeft - 50) + 'px';
             console.log("Left");
         }
 
-        if (event.key === 'ArrowRight' && currentLeft < game_variables.maxLeft) {
+        if (event.key === 'ArrowRight' && currentLeft < game.maxLeft) {
             player.style.left = (currentLeft + 50) + 'px';
             console.log("Right");
         }
@@ -375,41 +372,41 @@
     }
 
     function moveEnemy() {
-  enemy_variables.x += enemy_variables.speed;
+        enemy_plane.x += enemy_plane.speed;
 
-  if (enemy_variables.x < sky_variables.left) {
-    enemy_variables.speed == Math.floor(Math.random() * 3) + 1;
-    enemy_variables.x = sky_variables.left;
-    enemy_variables.y = Math.floor(Math.random() * 600) + 300;
+  if (enemy_plane.x < game_canvas.left) {
+    enemy_plane.speed == Math.floor(Math.random() * 3) + 1;
+    enemy_plane.x = game_canvas.left;
+    enemy_plane.y = Math.floor(Math.random() * 600) + 300;
         }
 
-  if (enemy_variables.x > sky_variables.right) {
-    enemy_variables.speed == Math.floor(Math.random() * 3) + 1;
-    enemy_variables.x = sky_variables.left;
-    enemy_variables.y = Math.floor(Math.random() * 600) + 300;
-    game_variables.lives -= 1;
-    document.getElementById('lives').innerHTML = 'Lives left: ' + game_variables.lives;
+  if (enemy_plane.x > game_canvas.right) {
+    enemy_plane.speed == Math.floor(Math.random() * 3) + 1;
+    enemy_plane.x = game_canvas.left;
+    enemy_plane.y = Math.floor(Math.random() * 600) + 300;
+    game.lives -= 1;
+    document.getElementById('lives').innerHTML = 'Lives left: ' + game.lives;
 
-            enemy_variables.x = sky_variables.left;
-            enemy_variables.y = Math.floor(Math.random() * 600) + 300;
-            enemy_variables.speed = Math.floor(Math.random() * 4);
-            game_variables.count += 1;
-            console.log(game_variables.count);
+            enemy_plane.x = game_canvas.left;
+            enemy_plane.y = Math.floor(Math.random() * 600) + 300;
+            enemy_plane.speed = Math.floor(Math.random() * 4);
+            game.count += 1;
+            console.log(game.count);
         }
     }
 
     
 
     function movement() {
-        enemy.style.left = enemy_variables.x + 'px';
-        enemy.style.top = enemy_variables.y + 'px';
+        enemy.style.left = enemy_plane.x + 'px';
+        enemy.style.top = enemy_plane.y + 'px';
     }
 
     setInterval(moveEnemy, 5);
 
     function recall() {
-        if (game_variables.count >= 3) {
-            enemy_variables.speed *= 0;
+        if (game.count >= 3) {
+            enemy_plane.speed *= 0;
             document.getElementById('message').innerHTML = 'GAME OVER';
             let element = document.getElementById("enemy");
             element.remove();
@@ -446,11 +443,11 @@
 
                 displayCollisionImage(projectileRect);
                 sound_fx(2);
-                enemy_variables.x = sky_variables.left;
-                enemy_variables.y = Math.floor(Math.random() * 600) + 300;
-                enemy_variables.speed += Math.floor(Math.random() * 5 + 1);
-                game_variables.score += 1;
-                document.getElementById('score').innerHTML = 'Score: ' + game_variables.score;
+                enemy_plane.x = game_canvas.left;
+                enemy_plane.y = Math.floor(Math.random() * 600) + 300;
+                enemy_plane.speed += Math.floor(Math.random() * 5 + 1);
+                game.score += 1;
+                document.getElementById('score').innerHTML = 'Score: ' + game.score;
             }
         }
     }
@@ -474,7 +471,7 @@
         moveEnemy()
         slice();
         recall();
-        enemy_variables.x = sky_variables.left;
+        enemy_plane.x = game_canvas.left;
         startButton.remove();
         document.getElementById('instructions').innerHTML = ''
         sound_fx(3);
@@ -496,3 +493,4 @@
 </script>
 </body>
 </html>
+
