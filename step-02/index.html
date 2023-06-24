@@ -7,7 +7,6 @@
     <h1 id ="score"> Score: </h1>
     <h1 id ="lives"> Lives left: 3  </h1>
     <h1 id ="instructions"> Press Button to Start</h1>
-    <h1 id="message"></h1>
     <audio id="sfx_1" src="https://opengameart.org/sites/default/files/laser1.wav"></audio>
     <audio id="sfx_2" src="https://opengameart.org/sites/default/files/explosion_1.wav"></audio>
     <audio id="sfx_3" src="https://opengameart.org/sites/default/files/engine_heavy_loop_0.mp3"></audio>
@@ -26,15 +25,24 @@
         }
 
 
-        #message {
-            font-family: Arial, Helvetica, sans-serif;
-            color: red;
+        #game_over {
+            width: 100vw; /* Set the width to 100% of the viewport width */
+            height: 100vh; /* Set the height to 100% of the viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: absolute;
-            font-size: 300px;
-            z-index: 3;
-            top: 200px;
-            left: 300px;
-            -webkit-text-stroke: 10px black;
+            z-index: 9999;
+            left: 35%;
+            top: 25%;
+            display: none;
+        }
+
+        #game_over img {
+            max-width: 100%; /* Set the maximum width to prevent the image from exceeding its original size */
+            max-height: 100%; /* Set the maximum height to prevent the image from exceeding its original size */
+            width: auto;
+            height: auto;
         }
 
         #start_button {
@@ -42,7 +50,9 @@
             width: 3%;
             background-color: #c91838;
             border-radius: 50%;
+            
             border-color: rgb(0, 0, 0);
+            
             border-width: 7px;
             position: absolute;
             top: 5%;
@@ -60,8 +70,8 @@
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
             top: 5%;
-            left: 35%;
-            font-size: 200%;
+            left: 30%;
+            font-size: 2.5rem;
             color: white;
         }
 
@@ -69,7 +79,7 @@
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
             top: 10.5%;
-            left: 44%;
+            left: 45%;
             font-size: 150%;
             color: white;
         }
@@ -78,18 +88,18 @@
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
             top: 5%;
-            left: 55%;
+            left: 60%;
             font-size: 200%;
             color: white;
         }
 
         #sky {
-            height: 80%;
+            height: 75%;
             width: 50%;
             background-color: skyblue;
             position: absolute;
             left: 25%;
-            top: 15%;
+            top: 20%;
             border-radius: 2.5%;
         }
 
@@ -114,8 +124,9 @@
         }
 
         #player {
-            height: 75px;
-            width: 75px;
+            width: 4%;
+            height: 0;
+            padding-bottom: 4%;
             background-image: url("https://openseauserdata.com/files/bdb79b1388a155eeae5d11dba03d31e6.png");
             background-size: cover;
             position: absolute;
@@ -123,8 +134,9 @@
             left: 50%;
         }
         #enemy {
-            height: 75px;
-            width: 75px;
+            width: 4%;
+            height: 0;
+            padding-bottom: 4%;
             background-image: url("https://openseauserdata.com/files/2cc66acef15f8a6772bd2d8605be3b10.png");
             background-size: cover;
             position: absolute;
@@ -204,7 +216,7 @@
             border-radius: 100px;
             opacity: 70%;
             position: absolute;
-            top: 20%;
+            top: 35%;
             left: 60%;
         }
 
@@ -228,6 +240,9 @@
 <div id="player"></div>
 <div id="projectile-container"></div>
 <div id="enemy"></div>
+<div id="game_over">
+    <img src="https://pngimg.com/d/game_over_PNG33.png" alt="Your Image">
+  </div>
 <button id="start_button"></button>
 <div id="cloud1"></div>
 <div id="cloud2"></div>
@@ -252,7 +267,7 @@
 
     let enemy_plane = {
         width: enemy.offsetWidth,
-        speed: Math.floor(Math.random() * 5 + 1),
+        speed: Math.floor(Math.random() * 3 + 1),
         x: document.getElementById('enemy').offsetLeft,
         y: Math.floor(Math.random() * 600) + 300,
     };
@@ -321,12 +336,12 @@
         let currentLeft = parseInt(player.style.left) || game_canvas.width;
 
         if (event.key === 'ArrowLeft' && currentLeft > game.minLeft) {
-            player.style.left = (currentLeft - 50) + 'px';
+            player.style.left = (currentLeft - user.width) + 'px';
             console.log("Left");
         }
 
         if (event.key === 'ArrowRight' && currentLeft < game.maxLeft) {
-            player.style.left = (currentLeft + 50) + 'px';
+            player.style.left = (currentLeft + user.width) + 'px';
             console.log("Right");
         }
     });
@@ -404,7 +419,7 @@
     function recall() {
         if (game.count >= 3) {
             enemy_plane.speed *= 0;
-            document.getElementById('message').innerHTML = 'GAME OVER';
+            document.getElementById('game_over').style.display = "block";
             let element = document.getElementById("enemy");
             element.remove();
             let end_text = document.getElementById('instructions')
