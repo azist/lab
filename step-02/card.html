@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        a:link {
+            text-decoration: none;
+        }
+        
+        a {
+            color: black;
+        }
+        
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            max-height: 100%;
+            overflow-y: hidden;
+            background-color: #212121;
+        }
+        
+        #card {
+            width: 50%;
+            height: 50%;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            bottom: 25%;
+            left: 25%;
+        }
+        
+        .icon {
+            left: 52%;
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            background-size: cover;
+        }
+        
+        #email_icon {
+            background-image: url("https://cdn-icons-png.flaticon.com/256/2530/2530528.png");
+            top: 41.10%;
+        }
+        
+        #git_icon {
+            background-image: url("https://cdn-icons-png.flaticon.com/256/25/25231.png");
+            top: 45.5%;
+        }
+        
+        #website_icon {
+            background-image: url("https://cdn-icons-png.flaticon.com/256/1006/1006771.png");
+            top: 50.5%;
+        }
+        
+        #phone_icon {
+            background-image: url("https://icons.iconarchive.com/icons/icons8/windows-8/256/Mobile-Phone-icon.png");
+            top: 60%;
+        }
+        
+        #logo {
+            background-image: url("https://i.redd.it/kdrpbspi2h9b1.png");
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            left: 37%;
+            top: 43%;
+            background-size: cover;
+        }
+        
+        h1 {
+            font-size: 50px;
+            position: absolute;
+            text-align: center;
+            left: 55%;
+            top: 27%;
+            font-family: sans-serif;
+            z-index: 1;
+        }
+        
+        h2 {
+            font-size: 25px;
+            position: absolute;
+            text-align: center;
+            left: 56.5%;
+            top: 35%;
+            font-family: sans-serif;
+            z-index: 1;
+        }
+        
+        h3 {
+            font-size: 25px;
+            position: absolute;
+            text-align: left;
+            left: 55%;
+            top: 40%;
+            font-family: sans-serif;
+            z-index: 1;
+        }
+        
+        @media (max-width: 2000px) {
+            h3 {
+                font-size: 23px;
+            }
+
+            #email_icon {
+            top: 42%;
+            }
+            
+            #git_icon {
+                top: 47.5%;
+            }
+            
+            #website_icon {
+                top: 54%;
+            }
+            
+            #phone_icon {
+                top: 60%;
+            }
+
+            #logo {
+                height: 175px;
+                width: 175px;
+                left: 35%;
+                top: 44%;
+            }
+
+        }
+        
+        @media (max-width: 1800px) {
+            h1 {
+                font-size: 48px;
+            }
+            h2{
+                font-size: 23.975px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            #logo {
+                height: 150px;
+                width: 150px;
+            }
+            .icon{
+                height: 36px;
+                width: 36px;
+            }
+            
+            #email_icon{
+                top: 41.5%;
+            }
+
+            #git_icon{
+                top: 46.5%;
+            }
+            
+            #website_icon{
+                top: 52%;
+            }
+
+            #phone_icon{
+                top: 57%;
+            }
+
+        }
+        
+        @media (max-width: 1700px) {
+            h1 {
+                font-size: 45px;
+            }
+            h2{
+                font-size: 23px;
+            }
+            h3 {
+                font-size: 18px;
+            }
+            #logo {
+                height: 125px;
+                width: 125px;
+            }
+            .icon{
+                height: 33px;
+                width: 33px;
+                
+            }
+
+            #email_icon{
+                top: 41.3%;
+            }
+
+            #git_icon{
+                top: 46%;
+            }
+            
+            #website_icon{
+                top: 51%;
+            }
+
+            #phone_icon{
+                top: 55.5%;
+            }
+
+
+        }
+
+        @media (max-width: 1500px) {
+
+            h1{
+                left: 42%;
+            }
+            h2{
+                left: 45%;
+            }
+            h3{
+                left: 40%;
+                font-size: 18px;
+            }
+            .icon {
+                height: 38px;
+                width: 38px;
+                left: 36%;
+            }
+
+
+        #email_icon {
+            top: 41.10%;
+        }
+        
+        #git_icon {
+            top: 45.5%;
+        }
+        
+        #website_icon {
+            top: 50.5%;
+        }
+        
+        #phone_icon {
+            top: 55%;
+        }
+
+
+        #logo {
+            height: 110px;
+            width: 110px;
+            left: 47%;
+            top: 62%;
+        }
+
+        }
+
+        @media (max-width: 1100px) {
+            .icon {
+                height: 35px;
+                width: 35px;
+                left: 35.5%;
+            }
+            h1{
+                left:40%;
+            }
+            h2{
+                left: 44%;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .icon {
+                height: 35px;
+                width: 35px;
+                left: 35.5%;
+            }
+            h1{
+                left:40%;
+            }
+            h2{
+                left: 44%;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .icon {
+                height: 33px;
+                width: 33px;
+                left: 33%;
+            }
+            #logo{
+                left: 45%;
+            }
+            h1{
+                left:35%;
+            }
+            h2{
+                left: 40%;
+            }
+            h3{
+                left: 38%;
+            }
+
+        }
+
+        @media (max-width: 780px) {
+            .icon {
+                height: 30px;
+                width: 30px;
+                left: 32%;
+            }
+            #logo{
+                left: 45%;
+            }
+            h1{
+                left: 34%;
+            }
+            h2{
+                left: 39%;
+            }
+            h3{
+                left: 38%;
+                font-size: 17px;
+            }
+
+        }
+
+        @media (max-width: 730px) {
+            .icon {
+                height: 25px;
+                width: 25px;
+                left: 32%;
+            }
+            #logo{
+                left: 45%;
+            }
+
+            #email_icon {
+                top: 41.4%;
+            }
+        
+            #git_icon {
+                top: 45%;
+            }
+            
+            #website_icon {
+                top: 49%;
+            }
+            
+            #phone_icon {
+                top: 53%;
+            }
+
+            h1{
+                left:32%;
+            }
+            h2{
+                left: 38%;
+            }
+            h3{
+                left: 38%;
+                font-size: 15px;
+            }
+
+        }
+
+        @media (max-width: 650px) {
+            .icon {
+                height: 20px;
+                width: 20px;
+                left: 32%;
+            }
+            #logo{
+                left: 44%;
+                height: 100px;
+                width: 100px;
+                
+            }
+
+            #email_icon {
+                top: 41.3%;
+            }
+        
+            #git_icon {
+                top: 44.5%;
+            }
+            
+            #website_icon {
+                top: 48%;
+            }
+            
+            #phone_icon {
+                top: 51.4%;
+            }
+
+            h1{
+                left:32%;
+                font-size: 40px;
+            }
+            h2{
+                left: 38%;
+                font-size: 20px;
+            }
+            h3{
+                left: 37%;
+                font-size: 13px;
+            }
+
+        }
+
+        @media (max-width: 650px) {
+            .icon {
+                height: 19px;
+                width: 19px;
+                left: 32%;
+            }
+            #logo{
+                left: 44%;
+                height: 90px;
+                width: 90px;
+                
+            }
+
+            #email_icon {
+                top: 41%;
+            }
+        
+            #git_icon {
+                top: 44%;
+            }
+            
+            #website_icon {
+                top: 47.5%;
+            }
+            
+            #phone_icon {
+                top: 50.4%;
+            }
+
+            h1{
+                left:33.5%;
+                font-size:38px;
+            }
+            h2{
+                left: 38.5%;
+                font-size: 19px;
+            }
+            h3{
+                left: 37%;
+                font-size: 12px;
+            }
+
+        }
+
+        @media (max-width: 570px) {
+            .icon {
+                height: 19px;
+                width: 19px;
+                left: 32%;
+            }
+            #logo{
+                left: 44%;
+                height: 90px;
+                width: 90px;
+                
+            }
+
+            #email_icon {
+                top: 41%;
+            }
+        
+            #git_icon {
+                top: 44%;
+            }
+            
+            #website_icon {
+                top: 47.5%;
+            }
+            
+            #phone_icon {
+                top: 50.4%;
+            }
+
+            h1{
+                left:33.5%;
+                font-size: 33px;
+            }
+            h2{
+                left: 38.5%;
+                font-size: 17px;
+            }
+            h3{
+                left: 37%;
+                font-size: 12px;
+            }
+
+        }
+
+        @media (max-width: 510px) {
+            .icon {
+                height: 17px;
+                width: 17px;
+                left: 32%;
+            }
+            #logo{
+                left: 43%;
+                height: 90px;
+                width: 90px;
+                
+            }
+
+            #email_icon {
+                top: 41%;
+            }
+        
+            #git_icon {
+                top: 43.8%;
+            }
+            
+            #website_icon {
+                top: 46.5%;
+            }
+            
+            #phone_icon {
+                top: 49%;
+            }
+
+            h1{
+                left:33%;
+                font-size: 30px;
+            }
+            h2{
+                left: 37%;
+                font-size: 16px;
+            }
+            h3{
+                left: 37%;
+                font-size: 11px;
+            }
+
+        }
+
+        @media (max-width: 460px) {
+            #logo{
+                left: 40%;
+                height: 90px;
+                width: 90px;
+                
+            }
+
+            #email_icon {
+                background-image: none;
+            }
+        
+            #git_icon {
+                background-image: none;
+            }
+            
+            #website_icon {
+                background-image: none;
+            }
+            
+            #phone_icon {
+                background-image: none;
+            }
+
+            h1{
+                left:31%;
+                font-size: 30px;
+            }
+            h2{
+                left: 36%;
+                font-size: 16px;
+            }
+            h3{
+                left: 32%;
+                font-size: 11px;
+            }
+
+        }
+
+        @media (max-width: 420px) {
+            #logo{
+                left: 40%;
+                height: 90px;
+                width: 90px;
+                
+            }
+            h1{
+                left:29%;
+                font-size: 30px;
+            }
+            h2{
+                left: 35%;
+                font-size: 16px;
+            }
+            h3{
+                left: 30%;
+                font-size: 11px;
+            }
+
+        }
+
+        @media (max-width: 390px) {
+            #logo{
+                left: 40%;
+                height: 90px;
+                width: 90px;
+                
+            }
+            h1{
+                left:27.5%;
+                font-size: 28px;
+            }
+            h2{
+                left: 32.5%;
+                font-size: 15px;
+            }
+            h3{
+                left: 30%;
+                font-size: 10px;
+            }
+
+        }
+
+        @media (max-width: 350px) {
+            #logo{
+                left: 40%;
+                height: 90px;
+                width: 90px;
+                
+            }
+            h1{
+                left:27.5%;
+                font-size: 26px;
+            }
+            h2{
+                left: 32.5%;
+                font-size: 15px;
+            }
+            h3{
+                left: 28%;
+                font-size: 10px;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="card"></div>
+    <div id="email_icon" class="icon"></div>
+    <div id="git_icon" class="icon"></div>
+    <div id="website_icon" class="icon"></div>
+    <div id="phone_icon" class="icon"></div>
+    <div id="logo"></div>
+    <h1>Evan Collins</h1>
+    <h2>-junior developer-</h2>
+    <h3>
+        email: evangcollins1@gmail.com <br><br>
+        github: <a href="https://github.com/EvanCollins23">EvanCollins23</a> <br><br>
+        website: <a href="https://shattereddisk.github.io/rickroll/rickroll.mp4">Dmitriy Industries</a><br><br>
+        phone number: (505)-503-4455
+    </h3>
+</body>
+</html>
