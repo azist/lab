@@ -6,43 +6,72 @@
     <title>Blog</title>
 
     <style> 
-        body {background-color: rgb(42, 40, 68);}
+
+    @import url('https://fonts.googleapis.com/css2?family=Gelasio&display=swap');
+
+        body {background-color: #121212;}
+
         header {
+        font-family: 'Gelasio', serif;
         padding: 20px;
         margin-left: 30%; 
         margin-right: 30%; 
         font-size: 30px;
         text-align: center;
-        background: grey;
+        background: #1e1e1e;
+        border-radius: 30px;
+        color: #d6d6d6;
         }
-        h1 {color: white;}
 
         section {
-            background-color: grey;
+            background-color: #1e1e1e;
             margin-left: 30%; 
-            margin-right: 30%; 
+            margin-right: 30%;
+            border-radius: 30px;
         }
         h2 {
+            font-family: 'Gelasio', serif;
             font-size: 35px;
             text-align: center;
-            padding: 50px;
-            color: white;}
+            padding: 5px;
+            color: #000000;
+            line-height:5;
+            color: #d6d6d6;
+            }
         p {
+            font-family: 'Gelasio', serif;
             font-size: 25px;
             text-align: center;
             margin-left: 10%; 
             margin-right: 10%; 
             padding: 8px;
-            color: white;}
+            color: #000000;
+            color: #d6d6d6;
+            }
+
+        .album {
+            display: block;
+            margin: 0 auto;
+            max-width: 25%;
+            }
+
+        .guitar {
+            display: block;
+            margin: 0 auto;
+            max-width: 50%;
+            border-radius: 10px;
+            }
+
         footer {
+            font-family: 'Gelasio', serif;
             text-align: center;
             padding: 10px;
-            color: white;
             }
         a:link {
             text-decoration: none;
-            color: white;
+            color: #d6d6d6;
             }
+
     </style>
 </head>
 <body>
@@ -54,7 +83,7 @@
     </header>
 
     <main>
-        <section>
+        <section id  = "section_1">
             <h2>What Music do I like?</h2>
             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Fugit obcaecati blanditiis minus, doloribus, 
@@ -84,6 +113,9 @@
                 Fugit obcaecati blanditiis minus, doloribus, 
                 maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
                 tenetur quibusdam harum! Quas, est!
+                <br>
+                <br>
+                <br>
             </p>
         </section>
         <section>
@@ -96,6 +128,22 @@
                 Fugit obcaecati blanditiis minus, doloribus, 
                 maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
                 tenetur quibusdam harum! Quas, est!
+                <div>
+                    <img class = "album" src="https://i.discogs.com/ksceFJxlj-n2NlH8s9DCniySVAlbF77vuCnYAiTYWaI/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNjMw/MTc3LTE1NTc0Mzgw/MDMtNDQzMS5qcGVn.jpeg">
+                </div>
+                <p> 
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit obcaecati blanditiis minus, doloribus, 
+                    maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                    tenetur quibusdam harum! Quas, est!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit obcaecati blanditiis minus, doloribus, 
+                    maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                    tenetur quibusdam harum! Quas, est!
+                <div>
+                    <img class = "album" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Masstaden_Under_Vatten.jpg">
+                </div>
+                <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Fugit obcaecati blanditiis minus, doloribus, 
                 maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
@@ -104,18 +152,83 @@
                 Fugit obcaecati blanditiis minus, doloribus, 
                 maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
                 tenetur quibusdam harum! Quas, est!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Fugit obcaecati blanditiis minus, doloribus, 
-                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
-                tenetur quibusdam harum! Quas, est!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Fugit obcaecati blanditiis minus, doloribus, 
-                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
-                tenetur quibusdam harum! Quas, est!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Fugit obcaecati blanditiis minus, doloribus, 
-                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
-                tenetur quibusdam harum! Quas, est!
+                <div>
+                    <img class = "album" src="https://i.discogs.com/6Lrfnw6OHpSjmulSgZ-U8FiZ6u4x9dkExMXl0wH-HVs/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTg1/NjIzLTE2NjIxNDQw/MzktMjU0Mi5qcGVn.jpeg">
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit obcaecati blanditiis minus, doloribus, 
+                    maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                    tenetur quibusdam harum! Quas, est!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit obcaecati blanditiis minus, doloribus, 
+                    maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                    tenetur quibusdam harum! Quas, est!
+                <div>
+                    <img class = "album" src="https://f4.bcbits.com/img/a0535757130_10.jpg">
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit obcaecati blanditiis minus, doloribus, 
+                    maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                    tenetur quibusdam harum! Quas, est!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit obcaecati blanditiis minus, doloribus, 
+                    maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                    tenetur quibusdam harum! Quas, est!
+                <div>
+                    <img class = "album" src="https://f4.bcbits.com/img/a1774907916_10.jpg">
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit obcaecati blanditiis minus, doloribus, 
+                    maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                    tenetur quibusdam harum! Quas, est!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit obcaecati blanditiis minus, doloribus, 
+                    maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                    tenetur quibusdam harum! Quas, est!
+                <div>
+                    <img class = "album" src="https://light-in-the-attic.s3.amazonaws.com/uploads/release_image/26433/image/large_550_tmp_2F1592253573761-j9u2on933q-f51ffc3c0eb3789084dc25680cfcb448_2FCRJ1016.jpg">
+                </div>
+                <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Fugit obcaecati blanditiis minus, doloribus, 
+                        maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                        tenetur quibusdam harum! Quas, est!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Fugit obcaecati blanditiis minus, doloribus, 
+                        maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                        tenetur quibusdam harum! Quas, est!
+                <div>
+                    <img class = "album" src="https://i.discogs.com/pWRWAcv8TCRP2VSDKm79ECDXsNXDGR9KikSunpDpOs0/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0Nzc1/OTcyLTE1ODEzNTk2/NDMtNDQ3My5qcGVn.jpeg">
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit obcaecati blanditiis minus, doloribus, 
+                    maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                    tenetur quibusdam harum! Quas, est!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit obcaecati blanditiis minus, doloribus, 
+                    maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                    tenetur quibusdam harum! Quas, est!
+                <div>
+                    <img class = "album" src="https://m.media-amazon.com/images/I/51Or8sHTe-L._UF1000,1000_QL80_.jpg">
+                </div>
+                <p>
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                     Fugit obcaecati blanditiis minus, doloribus, 
+                    maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                    tenetur quibusdam harum! Quas, est!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit obcaecati blanditiis minus, doloribus, 
+                    maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                    tenetur quibusdam harum! Quas, est!
+                <div>
+                    <img class = "album" src="https://i.scdn.co/image/ab67616d0000b273512c5c4bfc8588832e6bde49">
+                </div>
+                <br>
+                <br>
             </p>
         </section>
         <section>
@@ -132,6 +245,11 @@
                 Fugit obcaecati blanditiis minus, doloribus, 
                 maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
                 tenetur quibusdam harum! Quas, est!
+            <div>
+                <img class = "guitar" src="https://media.karousell.com/media/photos/products/2022/10/9/ibanez_prestige_az2204bk_elect_1665324693_cdab4bdf_progressive.jpg">
+            </div>
+            <p> 
+                
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Fugit obcaecati blanditiis minus, doloribus, 
                 maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
@@ -148,42 +266,39 @@
                 Fugit obcaecati blanditiis minus, doloribus, 
                 maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
                 tenetur quibusdam harum! Quas, est!
+            <div>
+                <img class = "guitar" src="https://hapasguitars.com/wp-content/uploads/F3CBDA70-50FE-4FF4-B16F-FBE5F06944A1.jpg">
+            </div>
+                <p> 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Fugit obcaecati blanditiis minus, doloribus, 
+                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                tenetur quibusdam harum! Quas, est!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Fugit obcaecati blanditiis minus, doloribus, 
+                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                tenetur quibusdam harum! Quas, est!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Fugit obcaecati blanditiis minus, doloribus, 
+                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                tenetur quibusdam harum! Quas, est!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Fugit obcaecati blanditiis minus, doloribus, 
+                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                tenetur quibusdam harum! Quas, est!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Fugit obcaecati blanditiis minus, doloribus, 
+                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
+                tenetur quibusdam harum! Quas, est!
+            <div>
+                <img class = "guitar" src="https://sirclocdn.com/nafiriguitar/products/_230222180750_IMG_6254_full.jpg">
+            </div>
+            <p> 
+                <br>
+                <br>
+                <br>
             </p>
         </section>
-
-        <section>
-            <h2>What are my favorite amps?</h2>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Fugit obcaecati blanditiis minus, doloribus, 
-                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
-                tenetur quibusdam harum! Quas, est!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Fugit obcaecati blanditiis minus, doloribus, 
-                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
-                tenetur quibusdam harum! Quas, est!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Fugit obcaecati blanditiis minus, doloribus, 
-                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
-                tenetur quibusdam harum! Quas, est!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Fugit obcaecati blanditiis minus, doloribus, 
-                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
-                tenetur quibusdam harum! Quas, est!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Fugit obcaecati blanditiis minus, doloribus, 
-                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
-                tenetur quibusdam harum! Quas, est!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Fugit obcaecati blanditiis minus, doloribus, 
-                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
-                tenetur quibusdam harum! Quas, est!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Fugit obcaecati blanditiis minus, doloribus, 
-                maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
-                tenetur quibusdam harum! Quas, est!
-            </p>
-        </section>
-
         <section>
             <h2>Other gear I use</h2>
             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -214,6 +329,9 @@
                 Fugit obcaecati blanditiis minus, doloribus, 
                 maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
                 tenetur quibusdam harum! Quas, est!
+                <br>
+                <br>
+                <br>
             </p>
         </section>
 
