@@ -9,10 +9,14 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Gelasio&display=swap');
 
-    .page_link:hover, .page_link:focus, .page_link:active {
+    .page_link:hover{
+        outline: 1.5px solid #d6d6d6;
         box-shadow: 0 0 20px rgba(195, 143, 255, 0.5);
     }
 
+    .link:hover{
+        text-decoration: underline;
+    }
         body {background-color: #121212;}
         nav{
             top: 0px;
@@ -25,6 +29,31 @@
             z-index: 100;
             margin-bottom:75px;
         }
+
+        .sidebar{
+            position: -webkit-sticky; 
+            position: sticky;
+            top: 15%;
+            left: 50px;
+            width: 20%;
+            line-height: 40px;
+            height: 550px;
+            background: #1f1f1f;
+            z-index: 100;
+            list-style-position: inside;
+            padding-left: 0;
+            color: #d6d6d6;
+            float: left;
+            font-family: 'Gelasio', serif;
+            font-size: 20px;
+            border-radius: 30px;
+        }
+
+        .sidebar:hover{
+            outline: 4px solid #d6d6d6;
+            box-shadow: 0 0 20px rgba(195, 143, 255, 0.5);
+        }
+
         .logo:hover{
             outline: 4px solid #d6d6d6;
             box-shadow: 0 0 20px rgba(195, 143, 255, 0.5);
@@ -50,6 +79,11 @@
             border-radius: 5px;
             background-color: transparent;
             box-shadow: 0 0 1px rgba(255, 12, 255, 0);
+        }
+        #contact:hover {
+            border-radius: 30px;
+            outline: 4px solid #d6d6d6;
+            box-shadow: 0 0 20px rgba(195, 143, 255, 0.5);
         }
 
         header {  
@@ -98,6 +132,12 @@
             box-shadow: 0 0 100px rgb(0, 0, 0);
             }
 
+        .album:hover{
+            box-shadow: 0 0 300px rgb(0, 0, 0);
+            outline: 2px solid #121212;
+            border-radius: 5px;
+        }
+
         .guitar {
             display: block;
             margin: 0 auto;
@@ -105,6 +145,12 @@
             border-radius: 10px;
             box-shadow: 0 0 100px rgb(0, 0, 0);
             }
+
+            .guitar:hover{
+            box-shadow: 0 0 125px rgb(0, 0, 0);
+            outline: 4px solid #121212;
+            border-radius: 10px;
+        }
 
         footer {
             font-family: 'Gelasio', serif;
@@ -129,6 +175,25 @@
         </ul>
     </nav>
 
+    <div class="sidebar">
+        <ol type="I">
+            <li><a class="link" href="#music">What Music do I like?</a></li>
+            <li><a class="link" href="#albums">What are my favorite albums?</a></li>
+            <ol type="i">
+                <li><a  class="link" href="#mint_jams">Mint Jams</a></li>
+                <li><a class="link" href="#muv">Måsstaden Under Vatten</a></li>
+                <li><a class="link" href="#timely">Timely!!!</a></li>
+                <li><a class="link" href="#heavener">Heavener</a></li>
+                <li><a class="link" href="#erra">ERRA</a></li>
+                <li><a class="link" href="#sunshowe">Sunshower</a></li>
+                <li><a class="link" href="#loathe">I Let it in...</a></li>
+                <li><a class="link" href="#classical">Classical</a></li>
+                <li><a class="link" href="#bonus">Bonus</a></li>
+            </ol>
+            <li><a class="link" href="#guitar">What are my favorite guitars?</a></li>
+            <li><a class="link" href="#gear">Other gear I use</a></li>
+        </ol>
+    </div>
 
     <header>
         <h1> What do I like?</h1>
@@ -136,7 +201,7 @@
 
     <main>
         <section id  = "section_1">
-            <h2>What Music do I like?</h2>
+            <h2 id="music">What Music do I like?</h2>
             <p> I've always prided myself on having a diverse music taste. I listen to everything from metal to ambient music to classical to jazz to blues.
                 In my early teens I really got into metal music from bands like Metallica and Pantera. Next thing you know I'm listening to bands like ERRA and Invent Animate.
                 I've always been a really been fan of progressive music, or "prog" as the scene likes to call it. And from listening to bands and artists like Plini, Arch Echo, and Animals as Leaders I took an interest in other genres.
@@ -158,106 +223,106 @@
             </p>
         </section>
         <section>
-            <h2>What are my favorite albums?</h2>
-            <p> Now for a list of some of my current favorite albums from a few different genres!
-                <br>
-                <br>
-                <br>
-                <br>
-                Mint Jams by Casiopea has been on repeat for me ever since I heard it.
-                This is their live album from 1982 performance at tokyo hall.
-                The music they play is a beautiful blend of jazz, funk, instrumental r&b, and city pop.
-                If you are to listen to any songs from this album I would reccomend the first two tracks "Take me" and "Asayake".
-                This is also one of if not the best sounding live albums I've ever heard.
-                <div><a href="https://youtu.be/q23fD1Kg7SI">
-                        <img class = "album" src="https://i.discogs.com/ksceFJxlj-n2NlH8s9DCniySVAlbF77vuCnYAiTYWaI/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNjMw/MTc3LTE1NTc0Mzgw/MDMtNDQzMS5qcGVn.jpeg">
-                    </a>
-                </div>
-                <p> 
-                    Next up on our list is one of the greatest metal albums of all time, Måsstaden under vatten by Vildhjarta.
-                    This 17 track concept album, over 8 years in the making has firmly planted a spot in my favorite albums of all time.
-                    This is the sequel to the previous concept album "Måsstaden."
-                    This album is full polyrhythms, crushing guitars, melancholic ambience, obsenely low tunings, and oustanding production.
-                    My favorite tracks have to the "Mitt trotta hjarta", "Paradiso", and "Brännmärkt".
-                <div>
-                    <a href="https://youtu.be/JzmYay3cstw">
-                        <img class = "album" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Masstaden_Under_Vatten.jpg">
-                    </a>
-                </div>
-                <p>
-                Timely!!! by Anri has to be my favorite city pop album.
-                If you are not familiar with city pop, city pop is the name for the style of music from the 70's and 80's in Japan that was pop music with a very heavy jazz influence.
-                This album is less jazzy than one of the later entries in this list but still a fantastic album.
-                My favorite track is "Driving my Love".
-                This is not only my favorite city pop album but also my favorite pop album in general.
-                It's just really great easy listening music that I think any musician or jazz lover can appreciate.
+            <h2 >What are my favorite albums?</h2>
+                <p id="mint_jams"> Now for a list of some of my current favorite albums from a few different genres!
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    Mint Jams by Casiopea has been on repeat for me ever since I heard it.
+                    This is their live album from 1982 performance at tokyo hall.
+                    The music they play is a beautiful blend of jazz, funk, instrumental r&b, and city pop.
+                    If you are to listen to any songs from this album I would reccomend the first two tracks "Take me" and "Asayake".
+                    This is also one of if not the best sounding live albums I've ever heard.
+                    <div><a href="https://youtu.be/q23fD1Kg7SI">
+                            <img class = "album" src="https://i.discogs.com/ksceFJxlj-n2NlH8s9DCniySVAlbF77vuCnYAiTYWaI/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNjMw/MTc3LTE1NTc0Mzgw/MDMtNDQzMS5qcGVn.jpeg">
+                        </a>
+                    </div>
+                    <p id="muv"> 
+                        Next up on our list is one of the greatest metal albums of all time, Måsstaden Under Vatten by Vildhjarta.
+                        This 17 track concept album, over 8 years in the making has firmly planted a spot in my favorite albums of all time.
+                        This is the sequel to the previous concept album "Måsstaden."
+                        This album is full polyrhythms, crushing guitars, melancholic ambience, obsenely low tunings, and oustanding production.
+                        My favorite tracks have to the "Mitt trotta hjarta", "Paradiso", and "Brännmärkt".
+                    <div>
+                        <a href="https://youtu.be/JzmYay3cstw">
+                            <img class = "album" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Masstaden_Under_Vatten.jpg">
+                        </a>
+                    </div>
+                    <p id="timely">
+                    Timely!!! by Anri has to be my favorite city pop album.
+                    If you are not familiar with city pop, city pop is the name for the style of music from the 70's and 80's in Japan that was pop music with a very heavy jazz influence.
+                    This album is less jazzy than one of the later entries in this list but still a fantastic album.
+                    My favorite track is "Driving my Love".
+                    This is not only my favorite city pop album but also my favorite pop album in general.
+                    It's just really great easy listening music that I think any musician or jazz lover can appreciate.
 
-                <div>
-                    <a href="https://youtu.be/AIpZ92U_BTE">
-                        <img class = "album" src="https://i.discogs.com/6Lrfnw6OHpSjmulSgZ-U8FiZ6u4x9dkExMXl0wH-HVs/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTg1/NjIzLTE2NjIxNDQw/MzktMjU0Mi5qcGVn.jpeg">
-                    </a>
-                </div>
-                <p>
-                    There's not much to say about Heavner by Invent Animate.
-                    it's a 10/10 album and is one of the best metal releases of all time.
-                    A fanastic blend of ambience, crushing riffs, catchy choruses, and emotion.
-                    My favorite tracks are "Shade Astray", "Purity Weeps", "Emberglow" and "Elysium".
+                    <div>
+                        <a href="https://youtu.be/AIpZ92U_BTE">
+                            <img class = "album" src="https://i.discogs.com/6Lrfnw6OHpSjmulSgZ-U8FiZ6u4x9dkExMXl0wH-HVs/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTg1/NjIzLTE2NjIxNDQw/MzktMjU0Mi5qcGVn.jpeg">
+                        </a>
+                    </div>
+                    <p id="heavener">
+                        There's not much to say about Heavner by Invent Animate.
+                        it's a 10/10 album and is one of the best metal releases of all time.
+                        A fanastic blend of ambience, crushing riffs, catchy choruses, and emotion.
+                        My favorite tracks are "Shade Astray", "Purity Weeps", "Emberglow" and "Elysium".
 
-                <div>
-                    <a href="https://youtu.be/dqWq0ErcqiA?list=PLHTo__bpnlYVe2MDVuCsdBJ--tlS9OAfB">
-                        <img class = "album" src="https://f4.bcbits.com/img/a0535757130_10.jpg">
-                    </a>
-                </div>
-                <p>
-                    ERRA's self titled album, specifically the deluxe edition is oustanding.
-                    Same story when it comes to Heavener, just an oustanding album and one of the best metal releases of all time, in my opinion that is.
-                    It's a lot more progressive than some other albums on this list.
-                    My favorite song on the album is probably the most "out there" song which would be "Lunar Halo".
-                    Starting a metal song off with an atmospheric solo vocoder section in mixolydian is one of the boldest things you can do in metal right now to say the least.
-                    Just an oustanding album. My favorite tracks are "Lunar Halo", "House of Glass", "Vanish Canvas", and "Gungrave".
-                <div>
-                    <a href="https://youtu.be/JlQjare_-Rk">
-                        <img class = "album" src="https://f4.bcbits.com/img/a1774907916_10.jpg">
-                    </a>
-                </div>
-                <p>
-                    Sunshower by Taeko Onuki has been one of my favorite albums to listen to as of late.
-                    It's a really great album that is more parts jazz than it is city pop.
-                    Some songs feel like it is just a jazz song with female vocals over it.
-                    My favorite song is easily "Kusuri o Takusan"
-                <div>
-                    <a href="https://youtu.be/G_IIsittDxA">
-                        <img class = "album" src="https://light-in-the-attic.s3.amazonaws.com/uploads/release_image/26433/image/large_550_tmp_2F1592253573761-j9u2on933q-f51ffc3c0eb3789084dc25680cfcb448_2FCRJ1016.jpg">
-                    </a>
-                </div>
-                <p>
-                    And to now close the list off with I let it in and it took everything by Loathe
-                    Just an overall oustanding album and one of the most unique sounding albums in metal.
-                    It's a great mix of alt rock, shoe gaze, ambience, and some of the heaviest music in all of metal.
-                    I almost can't pick a favorite off this album but if I had to it would be "I let it in and it took everything" and "Is it really you?"
-                <div>
-                    <a href="https://youtu.be/pQzxNLfAW8o">
-                    <img class = "album" src="https://i.discogs.com/pWRWAcv8TCRP2VSDKm79ECDXsNXDGR9KikSunpDpOs0/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0Nzc1/OTcyLTE1ODEzNTk2/NDMtNDQ3My5qcGVn.jpeg">
-                    </a>
-                </div>
-                <p>
-                And as an added bonus, as classical music is not released in album format I couldn't really put any on this list, however I did want to talk about some of my favorite classical peices.
-                As simple as it might be it will always be one of my favorite peices of music I've ever heard and that would be Bach's Prelude No 1 in C major.
-                Some other works of Bach I love are his chromatic fantasia and fugue, the little fugue in g minor, the toccata and fugue in D minor BWV 565, St Matthew's Passion, Jesu Joy of Man's desiring, and Ach bleib bei uns, Herr Jesu Christ BWV 649.
-                As for Mozart I would have to pick the Lacrimosa and the quintet for piano and winds in E flat major.
-                <br>
-                <br>
-                <br>
-                And on an entirely unrelated note I would highly reccomend checking out the work of saxophonist and film scorer Colin Stetson. He is an absolutely fabulous musician who has written some of the most unique sounding music I have ever heard.
-                I would reccomend checking out his songs "When we were that what wept for the sea", "The righteous wrath of an honerable man", "The love it took to leave you", "Reborn", and "Among the Sef."
-                <br>
-                <br>
-                <br>
-                <br>
-            </p>
+                    <div>
+                        <a href="https://youtu.be/dqWq0ErcqiA?list=PLHTo__bpnlYVe2MDVuCsdBJ--tlS9OAfB">
+                            <img class = "album" src="https://f4.bcbits.com/img/a0535757130_10.jpg">
+                        </a>
+                    </div>
+                    <p id="erra">
+                        ERRA's self titled album, specifically the deluxe edition is oustanding.
+                        Same story when it comes to Heavener, just an oustanding album and one of the best metal releases of all time, in my opinion that is.
+                        It's a lot more progressive than some other albums on this list.
+                        My favorite song on the album is probably the most "out there" song which would be "Lunar Halo".
+                        Starting a metal song off with an atmospheric solo vocoder section in mixolydian is one of the boldest things you can do in metal right now to say the least.
+                        Just an oustanding album. My favorite tracks are "Lunar Halo", "House of Glass", "Vanish Canvas", and "Gungrave".
+                    <div>
+                        <a href="https://youtu.be/JlQjare_-Rk">
+                            <img class = "album" src="https://f4.bcbits.com/img/a1774907916_10.jpg">
+                        </a>
+                    </div>
+                    <p id="sunshower">
+                        Sunshower by Taeko Onuki has been one of my favorite albums to listen to as of late.
+                        It's a really great album that is more parts jazz than it is city pop.
+                        Some songs feel like it is just a jazz song with female vocals over it.
+                        My favorite song is easily "Kusuri o Takusan"
+                    <div>
+                        <a href="https://youtu.be/G_IIsittDxA">
+                            <img class = "album" src="https://light-in-the-attic.s3.amazonaws.com/uploads/release_image/26433/image/large_550_tmp_2F1592253573761-j9u2on933q-f51ffc3c0eb3789084dc25680cfcb448_2FCRJ1016.jpg">
+                        </a>
+                    </div>
+                    <p id="loathe">
+                        And to now close the list off with I let it in and it took everything by Loathe
+                        Just an overall oustanding album and one of the most unique sounding albums in metal.
+                        It's a great mix of alt rock, shoe gaze, ambience, and some of the heaviest music in all of metal.
+                        I almost can't pick a favorite off this album but if I had to it would be "I let it in and it took everything" and "Is it really you?"
+                    <div>
+                        <a href="https://youtu.be/pQzxNLfAW8o">
+                        <img class = "album" src="https://i.discogs.com/pWRWAcv8TCRP2VSDKm79ECDXsNXDGR9KikSunpDpOs0/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0Nzc1/OTcyLTE1ODEzNTk2/NDMtNDQ3My5qcGVn.jpeg">
+                        </a>
+                    </div>
+                    <p id="classical">
+                    And as an added bonus, as classical music is not released in album format I couldn't really put any on this list, however I did want to talk about some of my favorite classical peices.
+                    As simple as it might be it will always be one of my favorite peices of music I've ever heard and that would be Bach's Prelude No 1 in C major.
+                    Some other works of Bach I love are his chromatic fantasia and fugue, the little fugue in g minor, the toccata and fugue in D minor BWV 565, St Matthew's Passion, Jesu Joy of Man's desiring, and Ach bleib bei uns, Herr Jesu Christ BWV 649.
+                    As for Mozart I would have to pick the Lacrimosa and the quintet for piano and winds in E flat major.
+                   </p>
+                   <p id="bonus">
+                    And on an entirely unrelated note I would highly reccomend checking out the work of saxophonist and film scorer Colin Stetson. He is an absolutely fabulous musician who has written some of the most unique sounding music I have ever heard.
+                    I would reccomend checking out his songs "When we were that what wept for the sea", "The righteous wrath of an honerable man", "The love it took to leave you", "Reborn", and "Among the Sef."
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </p>
         </section>
+
         <section>
-            <h2>What are my favorite guitars?</h2>
+            <h2 id="guitar">What are my favorite guitars?</h2>
             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Fugit obcaecati blanditiis minus, doloribus, 
                 maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
@@ -325,7 +390,7 @@
             </p>
         </section>
         <section>
-            <h2>Other gear I use</h2>
+            <h2 id="gear">Other gear I use</h2>
             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Fugit obcaecati blanditiis minus, doloribus, 
                 maiores eos porro voluptates possimus soluta sint eius laboriosam unde quas itaque, 
@@ -363,8 +428,8 @@
     </main>
 
     <footer>
-        <p>Author: Evan Collins<br>
-        <a href="mailto:evangcollins1@gmail.com">evangcollins1@gmail.com</a></p>
+            <p id="contact">Author: Evan Collins<br>
+            <a href="mailto:evangcollins1@gmail.com">evangcollins1@gmail.com</a></p>
       </footer>
 
 </body>
