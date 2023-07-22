@@ -9,9 +9,50 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Gelasio&display=swap');
 
-        body {background-color: #121212;}
+    .page_link:hover, .page_link:focus, .page_link:active {
+        box-shadow: 0 0 20px rgba(195, 143, 255, 0.5);
+    }
 
-        header {
+        body {background-color: #121212;}
+        nav{
+            top: 0px;
+            left: 0px;
+            padding: 20px 100px;
+            background: #1f1f1f;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            margin-bottom:75px;
+        }
+        .logo:hover{
+            outline: 4px solid #d6d6d6;
+            box-shadow: 0 0 20px rgba(195, 143, 255, 0.5);
+        }
+
+        .logo {
+            font-size: 50px;
+            border: 1px black;
+            color: #1f1f1f;
+            -webkit-text-stroke: 1.5px #d6d6d6;
+            font-weight: 700;
+            padding: 25px;
+            outline: 1px solid rgba(255, 255, 255, 0);
+            box-shadow: 0 0 1px rgba(255, 12, 255, 0);
+            
+        }
+
+        .page_link {
+            font-size: 28px;
+            margin-left: 150px;
+            margin-right: 100px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: transparent;
+            box-shadow: 0 0 1px rgba(255, 12, 255, 0);
+        }
+
+        header {  
         font-family: 'Gelasio', serif;
         padding: 20px;
         margin-left: 30%; 
@@ -21,6 +62,8 @@
         background: #1e1e1e;
         border-radius: 30px;
         color: #d6d6d6;
+        margin-bottom:75px;
+        text-shadow: 5px 0px 10px rgb(0, 0, 0);
         }
 
         section {
@@ -29,13 +72,13 @@
             margin-right: 30%;
             border-radius: 30px;
         }
+
         h2 {
             font-family: 'Gelasio', serif;
-            font-size: 35px;
+            font-size: 40px;
             text-align: center;
             padding: 5px;
-            color: #000000;
-            line-height:5;
+            line-height:3;
             color: #d6d6d6;
             }
         p {
@@ -45,14 +88,14 @@
             margin-left: 10%; 
             margin-right: 10%; 
             padding: 8px;
-            color: #000000;
             color: #d6d6d6;
             }
 
         .album {
             display: block;
-            margin: 0 auto;
+            margin: auto;
             max-width: 25%;
+            box-shadow: 0 0 100px rgb(0, 0, 0);
             }
 
         .guitar {
@@ -60,6 +103,7 @@
             margin: 0 auto;
             max-width: 50%;
             border-radius: 10px;
+            box-shadow: 0 0 100px rgb(0, 0, 0);
             }
 
         footer {
@@ -67,7 +111,7 @@
             text-align: center;
             padding: 10px;
             }
-        a:link {
+            a{
             text-decoration: none;
             color: #d6d6d6;
             }
@@ -76,10 +120,18 @@
 </head>
 <body>
     
+    <nav class="navbar">
+        <a href="#" class="logo">The Music Blog</a>
+        <ul>
+            <a href="#" class="page_link">About</a>
+            <a href="#" class="page_link">Contact</a>
+            <a href="#" class="page_link">Downloads</a>
+        </ul>
+    </nav>
+
+
     <header>
-
-        <h1>What do I like?</h1>
-
+        <h1> What do I like?</h1>
     </header>
 
     <main>
@@ -117,8 +169,9 @@
                 The music they play is a beautiful blend of jazz, funk, instrumental r&b, and city pop.
                 If you are to listen to any songs from this album I would reccomend the first two tracks "Take me" and "Asayake".
                 This is also one of if not the best sounding live albums I've ever heard.
-                <div>
-                    <img class = "album" src="https://i.discogs.com/ksceFJxlj-n2NlH8s9DCniySVAlbF77vuCnYAiTYWaI/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNjMw/MTc3LTE1NTc0Mzgw/MDMtNDQzMS5qcGVn.jpeg">
+                <div><a href="https://youtu.be/q23fD1Kg7SI">
+                        <img class = "album" src="https://i.discogs.com/ksceFJxlj-n2NlH8s9DCniySVAlbF77vuCnYAiTYWaI/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNjMw/MTc3LTE1NTc0Mzgw/MDMtNDQzMS5qcGVn.jpeg">
+                    </a>
                 </div>
                 <p> 
                     Next up on our list is one of the greatest metal albums of all time, Måsstaden under vatten by Vildhjarta.
@@ -127,7 +180,9 @@
                     This album is full polyrhythms, crushing guitars, melancholic ambience, obsenely low tunings, and oustanding production.
                     My favorite tracks have to the "Mitt trotta hjarta", "Paradiso", and "Brännmärkt".
                 <div>
-                    <img class = "album" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Masstaden_Under_Vatten.jpg">
+                    <a href="https://youtu.be/JzmYay3cstw">
+                        <img class = "album" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Masstaden_Under_Vatten.jpg">
+                    </a>
                 </div>
                 <p>
                 Timely!!! by Anri has to be my favorite city pop album.
@@ -138,7 +193,9 @@
                 It's just really great easy listening music that I think any musician or jazz lover can appreciate.
 
                 <div>
-                    <img class = "album" src="https://i.discogs.com/6Lrfnw6OHpSjmulSgZ-U8FiZ6u4x9dkExMXl0wH-HVs/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTg1/NjIzLTE2NjIxNDQw/MzktMjU0Mi5qcGVn.jpeg">
+                    <a href="https://youtu.be/AIpZ92U_BTE">
+                        <img class = "album" src="https://i.discogs.com/6Lrfnw6OHpSjmulSgZ-U8FiZ6u4x9dkExMXl0wH-HVs/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTg1/NjIzLTE2NjIxNDQw/MzktMjU0Mi5qcGVn.jpeg">
+                    </a>
                 </div>
                 <p>
                     There's not much to say about Heavner by Invent Animate.
@@ -147,7 +204,9 @@
                     My favorite tracks are "Shade Astray", "Purity Weeps", "Emberglow" and "Elysium".
 
                 <div>
-                    <img class = "album" src="https://f4.bcbits.com/img/a0535757130_10.jpg">
+                    <a href="https://youtu.be/dqWq0ErcqiA?list=PLHTo__bpnlYVe2MDVuCsdBJ--tlS9OAfB">
+                        <img class = "album" src="https://f4.bcbits.com/img/a0535757130_10.jpg">
+                    </a>
                 </div>
                 <p>
                     ERRA's self titled album, specifically the deluxe edition is oustanding.
@@ -157,7 +216,9 @@
                     Starting a metal song off with an atmospheric solo vocoder section in mixolydian is one of the boldest things you can do in metal right now to say the least.
                     Just an oustanding album. My favorite tracks are "Lunar Halo", "House of Glass", "Vanish Canvas", and "Gungrave".
                 <div>
-                    <img class = "album" src="https://f4.bcbits.com/img/a1774907916_10.jpg">
+                    <a href="https://youtu.be/JlQjare_-Rk">
+                        <img class = "album" src="https://f4.bcbits.com/img/a1774907916_10.jpg">
+                    </a>
                 </div>
                 <p>
                     Sunshower by Taeko Onuki has been one of my favorite albums to listen to as of late.
@@ -165,7 +226,9 @@
                     Some songs feel like it is just a jazz song with female vocals over it.
                     My favorite song is easily "Kusuri o Takusan"
                 <div>
-                    <img class = "album" src="https://light-in-the-attic.s3.amazonaws.com/uploads/release_image/26433/image/large_550_tmp_2F1592253573761-j9u2on933q-f51ffc3c0eb3789084dc25680cfcb448_2FCRJ1016.jpg">
+                    <a href="https://youtu.be/G_IIsittDxA">
+                        <img class = "album" src="https://light-in-the-attic.s3.amazonaws.com/uploads/release_image/26433/image/large_550_tmp_2F1592253573761-j9u2on933q-f51ffc3c0eb3789084dc25680cfcb448_2FCRJ1016.jpg">
+                    </a>
                 </div>
                 <p>
                     And to now close the list off with I let it in and it took everything by Loathe
@@ -173,9 +236,22 @@
                     It's a great mix of alt rock, shoe gaze, ambience, and some of the heaviest music in all of metal.
                     I almost can't pick a favorite off this album but if I had to it would be "I let it in and it took everything" and "Is it really you?"
                 <div>
+                    <a href="https://youtu.be/pQzxNLfAW8o">
                     <img class = "album" src="https://i.discogs.com/pWRWAcv8TCRP2VSDKm79ECDXsNXDGR9KikSunpDpOs0/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0Nzc1/OTcyLTE1ODEzNTk2/NDMtNDQ3My5qcGVn.jpeg">
+                    </a>
                 </div>
-                
+                <p>
+                And as an added bonus, as classical music is not released in album format I couldn't really put any on this list, however I did want to talk about some of my favorite classical peices.
+                As simple as it might be it will always be one of my favorite peices of music I've ever heard and that would be Bach's Prelude No 1 in C major.
+                Some other works of Bach I love are his chromatic fantasia and fugue, the little fugue in g minor, the toccata and fugue in D minor BWV 565, St Matthew's Passion, Jesu Joy of Man's desiring, and Ach bleib bei uns, Herr Jesu Christ BWV 649.
+                As for Mozart I would have to pick the Lacrimosa and the quintet for piano and winds in E flat major.
+                <br>
+                <br>
+                <br>
+                And on an entirely unrelated note I would highly reccomend checking out the work of saxophonist and film scorer Colin Stetson. He is an absolutely fabulous musician who has written some of the most unique sounding music I have ever heard.
+                I would reccomend checking out his songs "When we were that what wept for the sea", "The righteous wrath of an honerable man", "The love it took to leave you", "Reborn", and "Among the Sef."
+                <br>
+                <br>
                 <br>
                 <br>
             </p>
