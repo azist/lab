@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Gelasio&display=swap');
+
+        a:link {
+            text-decoration: none;
+        }
+        
+        a {
+            color: black;
+        }
+        
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            max-height: 100%;
+            overflow-y: hidden;
+            background-color: #212121;
+        }
+        
+        #card {
+            width: 50%;
+            height: 50%;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            bottom: 25%;
+            left: 25%;
+            box-shadow:  0px 0px 300px rgb(0, 0, 0);
+        }
+
+        #card:hover {
+        outline: 2px solid black;
+        border-radius: 1px;
+        }
+        
+        .icon {
+            left: 52%;
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            background-size: cover;
+        }
+        
+        #email_icon {
+            background-image: url("https://cdn-icons-png.flaticon.com/256/2530/2530528.png");
+            left: -10px;
+            top: -4px;
+        }
+        
+        #git_icon {
+            background-image: url("https://cdn-icons-png.flaticon.com/256/25/25231.png");
+            left: -10px;
+            top: 27%;
+        }
+        
+        #website_icon {
+            background-image: url("https://cdn-icons-png.flaticon.com/256/1006/1006771.png");
+            left: -10px;
+            top: 56%;
+        }
+        
+        #phone_icon {
+            background-image: url("https://icons.iconarchive.com/icons/icons8/windows-8/256/Mobile-Phone-icon.png");
+            left: -10px;
+            height: 38px;
+            width: 38px;
+            top: 84%;
+        }
+        
+        #logo {
+            height: 250px;
+            width: 250px;
+            position: absolute;
+            left: 32%;
+            top: 39%;
+            background-size: cover;
+        }
+
+        #name_and_title{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            left: 56%;
+            top: 29%;
+            font-family: 'Gelasio', serif;
+        }
+
+        #name {
+            font-size: 50px;
+            margin: 0;
+        }
+
+        #positon {
+            font-size: 30px;
+            margin: 0;
+        }
+
+        #content {
+            font-size: 25px;
+            position: absolute;
+            text-align: left;
+            left: 53%;
+            top: 41%;
+            font-family: 'Gelasio', serif;
+            z-index: 1;
+            list-style: none;
+        }
+        
+        @media (max-width: 1850px) {
+            #content {
+                font-size: 24px;   
+            }
+        }
+        
+        @media (max-width: 1780px) {
+            #content {
+                font-size: 23px;   
+            }
+        }
+
+        @media (max-width: 1750px) {
+            #content {
+                font-size: 22px;
+            }
+            .icon {
+                height: 35px;
+                width: 35px;
+            }
+        }
+
+        @media (max-width: 1680px) {
+            #name_and_title {
+                left: 53%;   
+            }
+            #content {
+                left: 50%;
+            }
+            #logo {
+                height: 200px;
+                width: 200px;
+                top: 43%;  
+            }
+
+            #phone_icon {
+                height: 32px;
+                width: 32px;
+            }
+        }
+
+        @media (max-width: 1480px) {
+            #name_and_title {
+                left: 50%;   
+            }
+            #content {
+                left: 50%;
+                font-size: 20px;
+            }
+            #logo {
+                height: 180px;
+                width: 180px;
+                top: 42%;  
+            }
+            .icon {
+                height: 32px;
+                width: 32px;
+            }
+
+            #phone_icon {
+                height: 31px;
+                width: 31px;
+            }
+        }
+
+        @media (max-width: 1350px) {
+            #name_and_title {
+                left: 50%;   
+            }
+            #content {
+                left: 48%;
+                font-size: 20px;
+            }
+            #logo {
+                height: 180px;
+                width: 180px;
+                top: 42%;
+                left: 30%;  
+            }
+        }
+
+        @media (max-width: 1230px) {
+            #name_and_title {
+                left: 49%;   
+            }
+            #content {
+                left: 48%;
+                font-size: 20px;
+            }
+            #logo {
+                height: 180px;
+                width: 180px;
+                top: 42%;
+                left: 30%;  
+            }
+        }
+
+        @media (max-width: 1220px) {
+
+            #card {
+                top: 12.5%;
+                width: 50%;
+                height: 75%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #name_and_title {
+                left: 40%;
+                top: 20%;  
+            }
+            #content {
+                left: 35%;
+                top: 35%;
+                font-size: 25px;
+            }
+            #logo {
+                height: 180px;
+                width: 180px;
+                top: 65%;
+                left: 43%;  
+            }
+        }
+
+        @media (max-width: 1100px) {
+            #content {
+                left: 34%;
+                font-size: 24px;
+            }
+            #name_and_title {
+                left: 38%;
+            }
+            #logo {
+                left: 42%;  
+            }
+        }
+
+        @media (max-width: 1000px) {
+            #content {
+                left: 33%;
+                font-size: 24px;
+            }
+            #name_and_title {
+                left: 37%;
+            }
+            #logo {
+                left: 43%;
+                top: 68%;
+                height: 150px;
+                width: 150px;  
+            }
+        }
+
+        @media (max-width: 1000px) {
+            #content {
+                left: 32%;
+                font-size: 22px;
+            }
+            #name_and_title {
+                left: 36%;
+            }
+            #logo {
+                left: 42%;
+                top: 68%;
+                height: 150px;
+                width: 150px;  
+            }
+        }
+
+        @media (max-width: 850px) {
+            #content {
+                left: 31%;
+                font-size: 20px;
+            }
+            #name_and_title {
+                left: 35%;
+            }
+            #logo {
+                left: 42%;
+                 
+            }
+        }
+
+        @media (max-width: 750px) {
+            #content {
+                left: 30%;
+                font-size: 19px;
+            }
+            #name_and_title {
+                left: 33%;
+            }
+            #logo {
+                left: 41%;
+            }
+
+        }
+
+        @media (max-width: 730px) {
+            #content {
+                left: 25%;
+                font-size: 19px;
+            }
+            #name_and_title {
+                left: 31%;
+            }
+            #logo {
+                left: 40%;
+            }
+
+            .icon {
+                display: none;
+            }
+        }
+
+        @media (max-width: 650px) {
+            #content {
+                left: 23%;
+                font-size: 19px;
+            }
+            #name_and_title {
+                left: 29%;
+            }
+            #logo {
+                left: 38%;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+            #content {
+                left: 20%;
+                font-size: 19px;
+            }
+            #name_and_title {
+                left: 26.5%;
+            }
+            #logo {
+                left: 38%;
+            }
+
+        }
+ 
+        @media (max-width: 570px) {
+            #card {
+                top: 5%;
+                left: 5%;
+                width: 90%;
+                height: 90%;
+                border-radius: 2.5%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #name_and_title {
+                left: 27%;
+                top: 10%;  
+            }
+            #content {
+                left: 10%;
+                top: 35%;
+                font-size: 25px;
+            }
+            #logo {
+                height: 180px;
+                width: 180px;
+                top: 70%;
+                left: 35%;  
+            }
+
+        }
+
+        @media (max-width: 480px) {   
+            #content {
+                left: 10%;
+                font-size: 23px;
+            }
+            #name_and_title {
+                left: 23%;
+            }
+            #logo {
+                left: 30%;
+            }
+        }
+
+        @media (max-width: 450px) {
+            #content {
+                left: 5%;
+                font-size: 23px;
+            }
+            #name_and_title {
+                left: 20%;
+            }
+        }
+
+
+        @media (max-width: 420px) {
+            #content {
+                left: 5%;
+                font-size: 20px;
+            }
+            #name_and_title {
+                left: 19%;
+                top: 20%;
+            }
+
+            #card {
+                top: 15%;
+                left: 5%;
+                width: 90%;
+                height: 70%;
+            }
+
+            #logo {
+                left: 30%;
+                top: 63%;
+            }
+        }
+
+        @media (max-width: 370px) {
+            #content {
+                left: 3%;
+                font-size: 20px;
+            }
+            #name_and_title {
+                left: 13%;
+                top: 20%;
+            }            
+
+        }
+
+        @media (max-width: 360px) {
+            #content {
+                left: 3%;
+                font-size: 19px;
+            }
+            #name_and_title {
+                left: 13%;
+                top: 20%;
+            }
+            #logo {
+                left: 28%;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <canvas id="card"></canvas>
+    <img id="logo" src='https://svgshare.com/i/vdf.svg'/>
+
+    <section id="name_and_title">
+        <h1 id="name">Evan Collins</h1>
+        <h2 id="positon">junior developer</h2>
+    </section>
+
+    <section>
+        <ol id="content">
+            <li> <div id="email_icon" class="icon"></div> email: <a href="mailto:evangcollins1@gmail.com">evangcollins1@gmail.com</a> <br><br></li>
+            <li> <div id="git_icon" class="icon"></div> github: <a href="https://github.com/EvanCollins23">EvanCollins23</a> <br><br></li>
+            <li> <div id="website_icon" class="icon"></div> website: <a href="https://shattereddisk.github.io/rickroll/rickroll.mp4">Dmitriy Industries</a><br><br></li>
+            <li> <div id="phone_icon" class="icon"></div> phone number: (505)-503-4455</li>
+        </ol>
+    </section>
+
+</body>
+</html>
+
