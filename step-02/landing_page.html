@@ -173,11 +173,98 @@
                 font-size: 15px;
             }
             .album {
-                max-width: 33.01%;
+                max-width: 33%;
             }
         }
 
-        
+
+        @media (max-width: 1024px) {
+            nav {
+                display: flex;
+                padding-top: 35px;
+                padding-bottom: 50px;
+                justify-content: center;
+                
+            }
+            .logo {
+                text-align: center;
+                font-size: 40px;
+            }
+
+            h1 {
+                font-size: 45px;
+            }
+
+            h2 {
+                font-size: 35px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+
+            ul {
+                display: flex;
+                justify-content: center;
+            }
+
+            .page_link {
+                line-height: 35px;
+                font-size: 25px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .sidebar {
+                line-height: 30px;
+                height: 475px;
+                font-size: 13px;
+            }
+
+            .album {
+                max-width: 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar{
+                display: none;
+            }
+            
+            header {
+                margin-left: 10%; 
+                margin-right: 10%; 
+            }
+
+            section {
+                margin-left: 10%; 
+                margin-right: 10%;
+            }
+
+            .page_link{
+                display:none;
+            }
+
+            nav {
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                padding: 0px;
+            }
+
+            .logo {
+                text-align: center;
+                font-size: 50px;
+                margin: 10px;
+                padding-left: 75px;
+                -webkit-text-stroke: 1px #d6d6d6;
+            }
+           
+        }
+
+
+        @media (max-width: 425px){
+            
+    }
 
     </style>
 </head>
@@ -189,7 +276,7 @@
             <a href="#" class="page_link">About</a>
             <a href="#" class="page_link">Contact</a>
             <a href="#" class="page_link">Downloads</a>
-        </ul>
+        </ul class= "nav_links">
     </nav>
 
     <div class="sidebar">
