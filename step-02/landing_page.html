@@ -135,7 +135,7 @@
             box-shadow: 0 0 300px rgb(0, 0, 0);
             outline: 2px solid #121212;
             border-radius: 5px;
-        }
+            }
 
         .guitar {
             display: block;
@@ -145,18 +145,30 @@
             box-shadow: 0 0 100px rgb(0, 0, 0);
             }
 
-            .guitar:hover{
+        .guitar:hover{
             box-shadow: 0 0 125px rgb(0, 0, 0);
             outline: 4px solid #121212;
             border-radius: 10px;
-        }
+            }
+
+        .footer_links {
+                display: none;
+            }
+
 
         footer {
             font-family: 'Gelasio', serif;
             text-align: center;
             padding: 10px;
             }
-            a{
+
+        footer .page_link {
+            font-size: 20px;
+            padding-bottom: 20px;
+            justify-content: space-evenly;
+            }
+
+        a{
             text-decoration: none;
             color: #d6d6d6;
             }
@@ -176,7 +188,6 @@
                 max-width: 33%;
             }
         }
-
 
         @media (max-width: 1024px) {
             nav {
@@ -201,9 +212,10 @@
 
             p {
                 font-size: 20px;
+                margin: 5px;
             }
 
-            ul {
+            .nav_links {
                 display: flex;
                 justify-content: center;
             }
@@ -240,7 +252,7 @@
                 margin-right: 10%;
             }
 
-            .page_link{
+            .nav_links{
                 display:none;
             }
 
@@ -255,16 +267,68 @@
                 text-align: center;
                 font-size: 50px;
                 margin: 10px;
-                padding-left: 75px;
                 -webkit-text-stroke: 1px #d6d6d6;
-            }
-           
+            }  
         }
 
-
         @media (max-width: 425px){
+            header {
+                margin-left: 5%; 
+                margin-right: 5%; 
+            }
+
+            section {
+                margin-left: 5%; 
+                margin-right: 5%;
+            }
+
+            h1 {
+                line-height: 40px;
+            }
+
+            h2 {
+                padding-top: 25px;
+                line-height: 50px;
+            }
             
-    }
+            .footer_links {
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                padding: 0;
+
+            }
+
+        }
+
+        @media (max-width: 375px){
+            .logo{
+                font-size: 40px;
+            }
+            h1{
+                font-size:35px;
+            }
+            h2{
+                font-size:30px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            .footer_links{
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 375px){
+            .footer_links{
+                display: block;
+            }
+            .page_link:hover{
+                padding: 0;
+            }
+        }
 
     </style>
 </head>
@@ -272,11 +336,11 @@
     
     <nav class="navbar">
         <a href="#" class="logo">The Music Blog</a>
-        <ul>
+        <ul class= "nav_links">
             <a href="#" class="page_link">About</a>
             <a href="#" class="page_link">Contact</a>
             <a href="#" class="page_link">Downloads</a>
-        </ul class= "nav_links">
+        </ul>
     </nav>
 
     <div class="sidebar">
@@ -532,6 +596,11 @@
     <footer>
             <p id="contact">Author: Evan Collins<br>
             <a href="mailto:evangcollins1@gmail.com">evangcollins1@gmail.com</a></p>
+                <ul class= "footer_links">
+                    <a href="#" class="page_link">About</a>
+                    <a href="#" class="page_link">Contact</a>
+                    <a href="#" class="page_link">Downloads</a>
+                </ul>
       </footer>
 
 </body>
