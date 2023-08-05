@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,30 +27,45 @@
             height: 100vh;
         }
 
-        #name_and_title {
+        #card {
             width: 50em;
             height: 25em;
             background-color: white;
             display: flex;
             justify-content: center;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
         }
-        
-        #name{
-            font-size: 4em; 
+
+        #logo {
+            height: 10em;
+            width: 10em;
+            margin-top: 3em;
+            margin-right: 5em;
+        }
+
+        #text {
+            text-align: center;
+        }
+
+        #name {
+            font-size: 4em;
             margin: 0;
         }
 
-        #positon{
+        #positon {
             font-size: 2.5em;
             margin: 0;
         }
-        
+
         #content {
             font-size: 1.5em;
             text-align: left;
             list-style: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
         }
 
         .icon {
@@ -59,11 +75,11 @@
             width: 1.25em;
             background-size: cover;
         }
-        
+
         #email_icon {
             background-image: url("https://cdn-icons-png.flaticon.com/256/2530/2530528.png");
         }
-        
+
         #git_icon {
             background-image: url("https://cdn-icons-png.flaticon.com/256/25/25231.png");
         }
@@ -71,24 +87,36 @@
         #website_icon {
             background-image: url("https://cdn-icons-png.flaticon.com/256/1006/1006771.png");
         }
-        
+
         #phone_icon {
             background-image: url("https://icons.iconarchive.com/icons/icons8/windows-8/256/Mobile-Phone-icon.png");
         }
     </style>
 </head>
+
 <body>
-        <section id="name_and_title">
+    <section id="card">
+        <img id="logo" src='https://svgshare.com/i/vdf.svg' />
+        <section id="text">
             <h1 id="name">Evan Collins</h1>
             <h2 id="positon">junior developer</h2>
-                <section>
-                    <ol id="content">
-                        <li> <div id="email_icon" class="icon"></div> <a href="mailto:evangcollins1@gmail.com">evangcollins1@gmail.com</a> <br><br></li>
-                        <li> <div id="git_icon" class="icon"></div> <a href="https://github.com/EvanCollins23">EvanCollins23</a> <br><br></li>
-                        <li> <div id="website_icon" class="icon"></div> <a href="https://shattereddisk.github.io/rickroll/rickroll.mp4">Dmitriy Industries</a><br><br></li>
-                        <li> <div id="phone_icon" class="icon"></div> (505)-503-4455</li>
-                    </ol>
-                </section>
+            <ol id="content">
+                <li class="link">
+                    <div id="email_icon" class="icon"></div> <a href="mailto:evangcollins1@gmail.com">evangcollins1@gmail.com</a> <br><br>
+                </li>
+                <li class="link">
+                    <div id="git_icon" class="icon"></div> <a href="https://github.com/EvanCollins23">EvanCollins23</a> <br><br>
+                </li>
+                <li class="link">
+                    <div id="website_icon" class="icon"></div> <a href="https://shattereddisk.github.io/rickroll/rickroll.mp4">Dmitriy Industries</a><br><br>
+                </li>
+                <li class="link">
+                    <div id="phone_icon" class="icon"></div> (505)-503-4455
+                </li>
+            </ol>
         </section>
+    </section>
+
 </body>
+
 </html>
