@@ -7,12 +7,23 @@
 
     <style>
 
+        @import url('https://fonts.googleapis.com/css2?family=Gelasio&display=swap');
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a {
+            color: black;
+        }
+
         body {
             background-color: rgb(32, 30, 30);
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
         }
 
@@ -26,16 +37,23 @@
             align-items: center;
         }
         
-        h1{
-            font-size: 5em; 
+        #name{
+            font-size: 4em; 
             margin: 0;
         }
 
-        h2{
-            font-size: 3em;
+        #positon{
+            font-size: 2.5em;
             margin: 0;
         }
         
+        #content {
+            font-size: 1.5em;
+            list-style: none;
+            text-align: center;
+        }
+
+
     </style>
 
 
@@ -44,6 +62,15 @@
         <section id="name_and_title">
             <h1 id="name">Evan Collins</h1>
             <h2 id="positon">junior developer</h2>
+                <section>
+                    <ol id="content">
+                        <li> <div id="email_icon" class="icon"></div> email: <a href="mailto:evangcollins1@gmail.com">evangcollins1@gmail.com</a> <br><br></li>
+                        <li> <div id="git_icon" class="icon"></div> github: <a href="https://github.com/EvanCollins23">EvanCollins23</a> <br><br></li>
+                        <li> <div id="website_icon" class="icon"></div> website: <a href="https://shattereddisk.github.io/rickroll/rickroll.mp4">Dmitriy Industries</a><br><br></li>
+                        <li> <div id="phone_icon" class="icon"></div> phone number: (505)-503-4455</li>
+                    </ol>
+                </section>
         </section>
+
 </body>
 </html>
