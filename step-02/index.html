@@ -7,7 +7,6 @@
     <h1 id ="score"> Score: </h1>
     <h1 id ="lives"> Lives left: 3  </h1>
     <h1 id ="instructions"> Press Button to Start</h1>
-    <h1 id="message"></h1>
     <audio id="sfx_1" src="https://opengameart.org/sites/default/files/laser1.wav"></audio>
     <audio id="sfx_2" src="https://opengameart.org/sites/default/files/explosion_1.wav"></audio>
     <audio id="sfx_3" src="https://opengameart.org/sites/default/files/engine_heavy_loop_0.mp3"></audio>
@@ -25,19 +24,25 @@
             background-color: #212121;
         }
 
-        .heading {
-            color: white;
+
+        #game_over {
+            width: 100vw; /* Set the width to 100% of the viewport width */
+            height: 100vh; /* Set the height to 100% of the viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            z-index: 9999;
+            left: 35%;
+            top: 25%;
+            display: none;
         }
 
-        #message {
-            font-family: Arial, Helvetica, sans-serif;
-            color: red;
-            position: absolute;
-            font-size: 300px;
-            z-index: 3;
-            top: 200px;
-            left: 300px;
-            -webkit-text-stroke: 10px black;
+        #game_over img {
+            max-width: 100%; /* Set the maximum width to prevent the image from exceeding its original size */
+            max-height: 100%; /* Set the maximum height to prevent the image from exceeding its original size */
+            width: auto;
+            height: auto;
         }
 
         #start_button {
@@ -45,11 +50,13 @@
             width: 3%;
             background-color: #c91838;
             border-radius: 50%;
+            
             border-color: rgb(0, 0, 0);
-            border-width: 10px;
+            
+            border-width: 7px;
             position: absolute;
             top: 5%;
-            left: 1162.5px;
+            left: 50%;
         }
 
         .heading {
@@ -63,8 +70,8 @@
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
             top: 5%;
-            left: 35%;
-            font-size: 200%;
+            left: 30%;
+            font-size: 2.5rem;
             color: white;
         }
 
@@ -72,7 +79,7 @@
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
             top: 10.5%;
-            left: 44%;
+            left: 45%;
             font-size: 150%;
             color: white;
         }
@@ -81,18 +88,18 @@
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
             top: 5%;
-            left: 55%;
+            left: 60%;
             font-size: 200%;
             color: white;
         }
 
         #sky {
-            height: 80%;
+            height: 75%;
             width: 50%;
             background-color: skyblue;
             position: absolute;
             left: 25%;
-            top: 15%;
+            top: 20%;
             border-radius: 2.5%;
         }
 
@@ -117,41 +124,27 @@
         }
 
         #player {
-            height: 50px;
-            width: 50px;
-            background-color: skyblue;
+            width: 4%;
+            height: 0;
+            padding-bottom: 4%;
+            background-image: url("https://openseauserdata.com/files/bdb79b1388a155eeae5d11dba03d31e6.png");
+            background-size: cover;
             position: absolute;
             bottom: 5%;
             left: 50%;
-            transform: translateX(-50%);
         }
-
-        #plane {
-            height: 75px;
-            width: 75px;
-            position: absolute;
-            bottom: 10%;
-            left: 20%;
-        }
-        
         #enemy {
-            height: 30px;
-            width: 75px;
-            background-color: tra;
+            width: 4%;
+            height: 0;
+            padding-bottom: 4%;
+            background-image: url("https://openseauserdata.com/files/2cc66acef15f8a6772bd2d8605be3b10.png");
+            background-size: cover;
             position: absolute;
             left: 20%;
             top: 20%;
+            rotate: 90deg;
             z-index: 1;
         }
-
-        #enemy_plane{
-            height: 75px;
-            width: 75px;
-            position: absolute;
-            bottom: 1%;
-            left: 1%;
-            transform: rotate(90deg);
-        } 
         .projectile {
             position: absolute;
             width: 10px;
@@ -223,7 +216,7 @@
             border-radius: 100px;
             opacity: 70%;
             position: absolute;
-            top: 20%;
+            top: 35%;
             left: 60%;
         }
 
@@ -244,13 +237,12 @@
 <div id="sky" class="canvas"></div>
 <div id="border"></div>
 <div id="border2"></div>
-<div id="player">
-    <img src="https://openseauserdata.com/files/bdb79b1388a155eeae5d11dba03d31e6.png" id = "plane">
-</div>
+<div id="player"></div>
 <div id="projectile-container"></div>
-<div id="enemy">
-    <img src="https://openseauserdata.com/files/2cc66acef15f8a6772bd2d8605be3b10.png" id = "enemy_plane">
-</div>
+<div id="enemy"></div>
+<div id="game_over">
+    <img src="https://pngimg.com/d/game_over_PNG33.png" alt="Your Image">
+  </div>
 <button id="start_button"></button>
 <div id="cloud1"></div>
 <div id="cloud2"></div>
@@ -259,34 +251,31 @@
 <div id="cloud5"></div>
 
 <script>
-    let player = document.getElementById('player');
-    let enemy = document.getElementById('enemy');
-    let projectile = document.getElementById('projectile');
     
-    let player_variables = {
+    let user = {
         width: player.offsetWidth,
         x: parseInt(player.style.left),
         y: parseInt(player.style.top),
     };
 
-    let sky_variables = {
+    let game_canvas = {
         width: document.getElementById('sky').offsetWidth,
         left: document.getElementById('sky').offsetLeft,
         right: ((document.getElementById('sky').offsetLeft) * 3) - enemy.offsetWidth,
         height: document.getElementById('sky').offsetHeight,
     };
 
-    let enemy_variables = {
+    let enemy_plane = {
         width: enemy.offsetWidth,
-        speed: Math.floor(Math.random() * 5 + 1),
+        speed: Math.floor(Math.random() * 3 + 1),
         x: document.getElementById('enemy').offsetLeft,
         y: Math.floor(Math.random() * 600) + 300,
     };
 
-    let game_variables = {
-        initialLeft: sky_variables.width + player_variables.width,
-        maxLeft: sky_variables.width * 1.5 - player_variables.width,
-        minLeft: sky_variables.width / 2 + 3,
+    let game = {
+        initialLeft: game_canvas.width + user.width,
+        maxLeft: game_canvas.width * 1.5 - user.width,
+        minLeft: game_canvas.width / 2 + 3,
         count: 0,
         score: 0,
         lives: 3,
@@ -294,62 +283,65 @@
     };
 
 
-    function sfx_1() {
-        let audio = document.getElementById("sfx_1");
-        audio.currentTime = 0; 
-        audio.play();
-    }
-    function sfx_2() {
-        let audio = document.getElementById("sfx_2");
-        audio.currentTime = 0; 
-        audio.play();
-    }
-    function sfx_3(){
-    let audio = document.getElementById('sfx_3');
-        audio.loop = true;
-        audio.autoplay = true;
-        audio.play();
-        let loopStartTime = 0;
-        let loopEndTime = 3;
-        audio.volume = 0.25;
-        audio.addEventListener('timeupdate', function() {
-        if (audio.currentTime >= loopEndTime) {
-            audio.currentTime = loopStartTime;
+    function sound_fx(number){
+        if (number == 1){
+            let audio = document.getElementById("sfx_1");
+            audio.currentTime = 0; 
+            audio.play();
         }
-        });}
 
-    function sfx_4() {
-        let audio = document.getElementById('sfx_4');
-        audio.loop = true;
-        audio.autoplay = true;
-        audio.play();
-        let loopStartTime = 0;
-        let loopEndTime = 24;
-        audio.volume = 0.45;
-        audio.addEventListener('timeupdate', function() {
-        if (audio.currentTime >= loopEndTime) {
-            audio.currentTime = loopStartTime;
+        if (number == 2){
+            let audio = document.getElementById("sfx_2");
+            audio.currentTime = 0; 
+            audio.play();
         }
-        });}
-    function sfx_5() {
-        let audio = document.getElementById("sfx_5");
-        audio.currentTime = 0; 
-        audio.play();
-    }    
+
+        if (number == 3){
+            let audio = document.getElementById('sfx_3');
+            audio.loop = true;
+            audio.autoplay = true;
+            audio.play();
+            let loopStartTime = 0;
+            let loopEndTime = 3;
+            audio.volume = 0.25;
+            audio.addEventListener('timeupdate', function() {
+            if (audio.currentTime >= loopEndTime) {
+                audio.currentTime = loopStartTime;
+        }})}
 
 
+        if (number == 4){
+            let audio = document.getElementById('sfx_4');
+            audio.loop = true;
+            audio.autoplay = true;
+            audio.play();
+            let loopStartTime = 0;
+            let loopEndTime = 24;
+            audio.volume = 0.45;
+            audio.addEventListener('timeupdate', function() {
+            if (audio.currentTime >= loopEndTime) {
+                audio.currentTime = loopStartTime;
+        }})}
+
+        if (number == 5){
+            let audio = document.getElementById("sfx_5");
+            audio.currentTime = 0; 
+            audio.play();
+        }
+
+    }
     // Establishing Keystroke input
 
     document.addEventListener('keydown', function (event) {
-        let currentLeft = parseInt(player.style.left) || sky_variables.width;
+        let currentLeft = parseInt(player.style.left) || game_canvas.width;
 
-        if (event.key === 'ArrowLeft' && currentLeft > game_variables.minLeft) {
-            player.style.left = (currentLeft - 50) + 'px';
+        if (event.key === 'ArrowLeft' && currentLeft > game.minLeft) {
+            player.style.left = (currentLeft - user.width) + 'px';
             console.log("Left");
         }
 
-        if (event.key === 'ArrowRight' && currentLeft < game_variables.maxLeft) {
-            player.style.left = (currentLeft + 50) + 'px';
+        if (event.key === 'ArrowRight' && currentLeft < game.maxLeft) {
+            player.style.left = (currentLeft + user.width) + 'px';
             console.log("Right");
         }
     });
@@ -358,7 +350,7 @@
     document.addEventListener('keydown', function (event) {
         if (event.key === ' ') {
             shootProjectile();
-            sfx_1();
+            sound_fx(1);
         }
     });
 
@@ -392,42 +384,42 @@
     }
 
     function moveEnemy() {
-  enemy_variables.x += enemy_variables.speed;
+        enemy_plane.x += enemy_plane.speed;
 
-  if (enemy_variables.x < sky_variables.left) {
-    enemy_variables.speed == Math.floor(Math.random() * 3) + 1;
-    enemy_variables.x = sky_variables.left;
-    enemy_variables.y = Math.floor(Math.random() * 600) + 300;
+  if (enemy_plane.x < game_canvas.left) {
+    enemy_plane.speed == Math.floor(Math.random() * 3) + 1;
+    enemy_plane.x = game_canvas.left;
+    enemy_plane.y = Math.floor(Math.random() * 600) + 300;
         }
 
-  if (enemy_variables.x > sky_variables.right) {
-    enemy_variables.speed == Math.floor(Math.random() * 3) + 1;
-    enemy_variables.x = sky_variables.left;
-    enemy_variables.y = Math.floor(Math.random() * 600) + 300;
-    game_variables.lives -= 1;
-    document.getElementById('lives').innerHTML = 'Lives left: ' + game_variables.lives;
+  if (enemy_plane.x > game_canvas.right) {
+    enemy_plane.speed == Math.floor(Math.random() * 3) + 1;
+    enemy_plane.x = game_canvas.left;
+    enemy_plane.y = Math.floor(Math.random() * 600) + 300;
+    game.lives -= 1;
+    document.getElementById('lives').innerHTML = 'Lives left: ' + game.lives;
 
-            enemy_variables.x = sky_variables.left;
-            enemy_variables.y = Math.floor(Math.random() * 600) + 300;
-            enemy_variables.speed = Math.floor(Math.random() * 4);
-            game_variables.count += 1;
-            console.log(game_variables.count);
+            enemy_plane.x = game_canvas.left;
+            enemy_plane.y = Math.floor(Math.random() * 600) + 300;
+            enemy_plane.speed = Math.floor(Math.random() * 4);
+            game.count += 1;
+            console.log(game.count);
         }
     }
 
     
 
     function movement() {
-        enemy.style.left = enemy_variables.x + 'px';
-        enemy.style.top = enemy_variables.y + 'px';
+        enemy.style.left = enemy_plane.x + 'px';
+        enemy.style.top = enemy_plane.y + 'px';
     }
 
     setInterval(moveEnemy, 5);
 
     function recall() {
-        if (game_variables.count >= 3) {
-            enemy_variables.speed *= 0;
-            document.getElementById('message').innerHTML = 'GAME OVER';
+        if (game.count >= 3) {
+            enemy_plane.speed *= 0;
+            document.getElementById('game_over').style.display = "block";
             let element = document.getElementById("enemy");
             element.remove();
             let end_text = document.getElementById('instructions')
@@ -436,7 +428,7 @@
             let sfx_4 = document.getElementById("sfx_4");
             sfx_3.remove();
             sfx_4.remove();
-            sfx_5();
+            sound_fx(5);
 
 
             
@@ -462,12 +454,12 @@
                 projectile.remove();
 
                 displayCollisionImage(projectileRect);
-                sfx_2();
-                enemy_variables.x = sky_variables.left;
-                enemy_variables.y = Math.floor(Math.random() * 600) + 300;
-                enemy_variables.speed += Math.floor(Math.random() * 5 + 1);
-                game_variables.score += 1;
-                document.getElementById('score').innerHTML = 'Score: ' + game_variables.score;
+                sound_fx(2);
+                enemy_plane.x = game_canvas.left;
+                enemy_plane.y = Math.floor(Math.random() * 600) + 300;
+                enemy_plane.speed += Math.floor(Math.random() * 5 + 1);
+                game.score += 1;
+                document.getElementById('score').innerHTML = 'Score: ' + game.score;
             }
         }
     }
@@ -491,11 +483,11 @@
         moveEnemy()
         slice();
         recall();
-        enemy_variables.x = sky_variables.left;
+        enemy_plane.x = game_canvas.left;
         startButton.remove();
         document.getElementById('instructions').innerHTML = ''
-        sfx_3();
-        sfx_4();
+        sound_fx(3);
+        sound_fx(4);
 
 
     }
@@ -513,3 +505,4 @@
 </script>
 </body>
 </html>
+
