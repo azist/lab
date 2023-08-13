@@ -1,191 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet">
-    <style>
-        
-
-        a:link {
-            text-decoration: none;
-        }
-
-        a {
-            color: black;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: rgb(32, 30, 30);
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        #card {
-            width: 50em;
-            height: 25em;
-            background-color: white;
-            display: flex;
-            justify-content: left;
-            flex-direction: row;
-            align-items: center;
-            outline: black 0.20em solid;
-        }
-
-        #column {
-            width: 14em;
-            height: 25em;
-            background-color: grey;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-right: black 0.25em solid;
-        }
-
-        #row {
-            width: 45em;
-            height: 7.75em;
-            margin-right: 0px;
-            margin-top: 272px;
-            background-color: grey;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-top: black 0.25em solid;
-        }
-
-        #text {
-            text-align: center;
-        }
-
-        #name {
-            font-size: 3.5em;
-            margin: 0;
-        }
-
-        #positon {
-            font-size: 2em;
-            margin: 0;
-        }
-
-        #content {
-            font-size: 1.3em;
-            text-align: left;
-            list-style: none;
-        }
-
-        .link:hover {
-            text-decoration: underline;
-        }
-
-        .icon {
-            float: left;
-            margin-right: 10px;
-            height: 1.25em;
-            width: 1.25em;
-            background-size: cover;
-        }
-
-        #email_icon {
-            background-image: url("https://cdn-icons-png.flaticon.com/256/2530/2530528.png");
-        }
-
-        #git_icon {
-            background-image: url("https://cdn-icons-png.flaticon.com/256/25/25231.png");
-        }
-
-        #website_icon {
-            background-image: url("https://cdn-icons-png.flaticon.com/256/1006/1006771.png");
-        }
-
-        #phone_icon {
-            background-image: url("https://icons.iconarchive.com/icons/icons8/windows-8/256/Mobile-Phone-icon.png");
-        }
-
-        @media (max-width: 650px) {
-            #logo {
-                margin-left: 3rem;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+        <style>
+            
+            a:link {
+                text-decoration: none;
             }
-        }
-        @media (max-width: 600px) {
-            #logo {
-                margin-left: 6rem;
+
+            a {
+                color: black;
             }
-        }
 
-        @media (max-width: 550px) {
-            #logo {
-                margin-left: 7rem;
+            body {
+                font-family: 'PT Sans', sans-serif;
+                background-color: rgb(32, 30, 30);
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: 100vh;
             }
-        }
 
-        @media (max-width: 500px) {
-            #logo {
-                margin-left: 8rem;
-                margin-right: 2em;
+            #card {
+                width: 50em;
+                height: 25em;
+                background-color: rgb(243, 239, 250);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                outline: rgb(65, 53, 109) 0.20em solid;
+                border: 1em solid rgb(111, 91, 185);
             }
-        }
 
-        @media (max-width: 450px) {
-            #logo {
-                margin-left: 9rem;
-                margin-right: 1em;
+            #column {
+                width: 20em;
+                height: 25em;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
             }
-        }
 
-        @media (max-width: 400px) {
-            #logo {
-                margin-left: 10rem;
-                margin-right: 1em;
+            #text {
+                text-align: center;
             }
-        }
 
-        @media (max-width: 375px) {
-            #logo {
-                margin-left: 12rem;
-                margin-right: 1em;
+            #name {
+                font-size: 3.5em;
+                margin: 0;
+                margin-top: 1em;
+                border-bottom: 0.08em solid rgb(40, 33, 68);
             }
-        }
 
-        @media (max-width: 375px) {
-            #logo {
-                margin-left: 13rem;
-                margin-right: 0em;
+            #positon {
+                font-size: 2em;
+                margin: 0;
+                border-bottom: 0.10em solid rgb(40, 33, 68);
+                width: 8em;
+                margin-left: 1em;
             }
-        }
 
-    </style>
-</head>
+            #content {
+                font-size: 1.3em;
+                text-align: center;
+                list-style: none;
+                padding-left: 0;
+            }
 
-<body>
-    <section id="card">
-        <div id="column">
-            <h1 id="name">Evan Collins</h1>
-            <h2 id="positon">junior developer</h2>
-        </div>
-        <div id="row">
-            <section id="contact">
-                <ol id="content">
-                    <li class="link">
-                        <div id="email_icon" class="icon"></div> <a href="mailto:evangcollins1@gmail.com">evangcollins1@gmail.com</a> <br><br>
-                    </li>
-                    <li class="link">
-                        <div id="phone_icon" class="icon"></div> (505)-503-4455
-                    </li>
-                </ol>
-            </section>
-        </div>
-    </section>
+            .link:hover {
+                text-decoration: underline;
+            }
 
-</body>
+            .icon {
+                display: inline-flex;
+                align-items: center;
+                margin-bottom: -0.3em;
+                margin-right: 0.5em;
+                height: 1.25em;
+                width: 1.25em;
+                background-size: cover;
+            }
 
+            #email_icon {
+                background-image: url("https://cdn-icons-png.flaticon.com/256/2530/2530528.png");
+            }
+
+            #phone_icon {
+                background-image: url("https://icons.iconarchive.com/icons/icons8/windows-8/256/Mobile-Phone-icon.png");
+            }
+
+            @media (max-width: 870px) {
+                #card {
+                    width: 40em;
+                }
+            }
+
+            @media (max-width: 700px) {
+                #card {
+                    width: 35em;
+                    height: 24em;
+                }
+            }
+
+            @media (max-width: 600px) {
+                #card {
+                    width: 30em;
+                    height: 20em;
+                }
+            }
+
+            @media (max-width: 600px) {
+                *{
+                    font-size: 14px;
+                }
+            }
+
+            @media (max-width: 450px) {
+                #card {
+                    width: 25em;
+                    height: 50em;
+                }
+            }
+
+            @media (max-width: 375px) {
+                #card {
+                    width: 22em;
+                }
+            }
+
+            @media (max-width: 345px) {
+                #card {
+                    width: 20em;
+                }
+
+                #name {
+                    padding-left: -1em;
+                    padding-right: -1em;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <section id="card">
+            <div id="column">
+                <h1 id="name">Evan Collins</h1>
+                <h2 id="positon">junior developer</h2>
+                    <section id="contact">
+                        <ol id="content">
+                            <li class="link">
+                                <div id="email_icon" class="icon"></div> <a href="mailto:evangcollins1@gmail.com">evangcollins1@gmail.com</a> <br><br>
+                            </li>
+                            <li class="link">
+                                <div id="phone_icon" class="icon"></div> (505)-503-4455
+                            </li>
+                        </ol>
+                    </section>
+            </div>
+        </section>
+    </body>
 </html>
+
