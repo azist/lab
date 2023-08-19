@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+
+    <style> 
+
+    @import url('https://fonts.googleapis.com/css2?family=Gelasio&display=swap');
+
+
+        body {background-color: #121212;}
+
+        nav{
+            border-radius: 1em;
+            padding: 4em 4.5em;
+            padding-bottom: 2em;
+            background: #1f1f1f;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom:3.5em;
+        }
+
+        .logo {
+            font-size: 3.5em;
+            border: 0.1em black;
+            color: #1f1f1f;
+            -webkit-text-stroke: 0.03em #d6d6d6;
+            font-weight: 700;
+            padding: 0.75em;
+            outline: 0.03em solid rgba(255, 255, 255, 0);
+            box-shadow: 0 0 0.03em rgba(255, 12, 255, 0);
+            
+        }
+
+        .logo:hover{
+            outline: 0.1em solid #d6d6d6;
+            box-shadow: 0 0 0.5em rgba(195, 143, 255, 0.5);
+        }
+
+        .page_link {
+            font-size: 2em;
+            margin-left: 5em;
+            margin-right: 3em;
+            padding: 0.1em;
+            border-radius: 0.1em;
+            background-color: transparent;
+            box-shadow: 0 0 0.03em rgba(255, 12, 255, 0);
+        }
+
+        .page_link:hover{
+            outline: 1.5px solid #d6d6d6;
+            box-shadow: 0 0 0.75em rgba(195, 143, 255, 0.5);
+        }
+
+        .link:hover{
+            text-decoration: underline;
+        }
+
+        header {  
+        font-family: 'Gelasio', serif;
+        padding: 1em;
+        margin-left: 30%; 
+        margin-right: 30%; 
+        font-size: 2em;
+        text-align: center;
+        background: #1e1e1e;
+        border-radius: 1em;
+        color: #d6d6d6;
+        margin-bottom:3em;
+        text-shadow: 0.25em 0em 0.5em rgb(0, 0, 0);
+        }
+
+        section {
+            background-color: #1e1e1e;
+            margin-left: 30%; 
+            margin-right: 30%;
+            border-radius: 2em;
+        }
+
+        h2 {
+            font-family: 'Gelasio', serif;
+            font-size: 4em;
+            text-align: center;
+            padding-top: 1em;
+            color: #d6d6d6;
+        }
+
+        p {
+            font-family: 'Gelasio', serif;
+            font-size: 2em;
+            text-align: center;
+            margin-left: 8%; 
+            margin-right: 8%; 
+            padding: 8px;
+            color: #d6d6d6;
+        }
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-size: 2.5em;
+        } 
+
+        input[type="text"], select {
+            color: #d6d6d6;
+            text-align: center;
+            width: 75%;
+            height: 2em;
+            border: 0.25em solid #161616;
+            border-radius: 0.5em;
+            background-color: #3a3939;
+            margin: 1em;
+            font-family: 'Gelasio', serif;
+            font-size: 0.5em;
+        }
+
+        label {
+            color: #d6d6d6;
+            font-family: 'Gelasio', serif;
+        }
+
+        #submit {
+            height: 3em;
+            width: 5em;
+            border-radius: 1em;
+            border: 0.25em solid #161616;
+            font-family: 'Gelasio', serif;
+            font-size: 0.75em;
+            margin-top: 5em;
+            color: #d6d6d6;
+            background-color: #3a3939;
+        }
+
+        #submit:hover {
+            background-color: #2b2b2b;
+        }
+
+        a{
+            text-decoration: none;
+            color: #d6d6d6;
+        }
+
+        .footer_links {
+                display: none;
+            }
+
+
+        footer {
+            font-family: 'Gelasio', serif;
+            text-align: center;
+            padding: 1em;
+            }
+
+        footer .page_link {
+            font-size: 2em;
+            padding-bottom: 1em;
+            justify-content: space-evenly;
+            }
+
+
+        @media (max-width: 1716px) {
+            nav {
+                display: grid;
+                text-align: center;
+                justify-content: center;
+            }
+
+        }
+
+        @media (max-width: 1440px) {
+            nav {
+                display: block;
+                padding-bottom: 30px;
+            }
+            .page_link {
+                line-height: 75px;
+            }
+            .sidebar {
+                font-size: 15px;
+            }
+            .album {
+                max-width: 33%;
+            }
+        }
+
+        @media (max-width: 1328px) {
+            nav {
+                padding-bottom: 20px;
+            }
+            .logo {
+                display: block;
+                margin: 0;
+            }
+
+            .nav_links {
+                display: flex;
+                justify-content: center;
+                margin-top: 0;
+            }
+        }   
+
+        @media (max-width: 1024px) {
+            nav {
+                display: flex;
+                padding-top: 35px;
+                padding-bottom: 50px;
+                justify-content: center;
+                
+            }
+            .logo {
+                text-align: center;
+                font-size: 3.2em;
+            }     
+    
+            .nav_links {
+                display: flex;
+                justify-content: center;
+            }
+
+            .page_link {
+                line-height: 35px;
+                font-size: 25px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+            
+            
+            header {
+                margin-left: 10%; 
+                margin-right: 10%; 
+            }
+
+            section {
+                margin-left: 10%; 
+                margin-right: 10%;
+            }
+
+            .nav_links{
+                display:none;
+            }
+
+            nav {
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                padding: 0px;
+            }
+
+            .logo {
+                text-align: center;
+                font-size: 50px;
+                margin: 10px;
+                -webkit-text-stroke: 1px #d6d6d6;
+            }  
+
+            .footer_links {
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                padding: 0;
+
+            }
+        }
+
+        @media (max-width: 425px){
+            header {
+                margin-left: 5%; 
+                margin-right: 5%; 
+            }
+
+            section {
+                margin-left: 5%; 
+                margin-right: 5%;
+            }
+
+            h1 {
+                line-height: 40px;
+            }
+
+            h2 {
+                padding-top: 25px;
+                line-height: 50px;
+            }
+            
+            .footer_links {
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                padding: 0;
+
+            }
+        }
+
+        @media (max-width: 375px){
+            .logo{
+                font-size: 40px;
+            }
+            h1{
+                font-size:35px;
+            }
+            h2{
+                font-size:30px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            .footer_links{
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 375px){
+            .footer_links{
+                display: block;
+            }
+            .page_link:hover{
+                padding: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <a href="#" class="logo">The Music Blog</a>
+        <ul class= "nav_links">
+            <a href="#" class="page_link">About</a>
+            <a href="#" class="page_link">Contact</a>
+            <a href="#" class="page_link">Downloads</a>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Contact</h1>
+    </header>
+
+    <main>
+        <section id  = "section_1">
+                <h2 id="music">Music submissions</h2>
+                <p> 
+                    <form>
+
+                        <div>
+                            <label for="fname">first name</label>
+                            <input type="text" id="fname" class="field">
+                        </div>
+
+                        <div>
+                            <label for="artist">artist</label>
+                            <input type="text" id="artist" class="field">
+                        </div>
+
+                        <div>
+                            <label for="album">album</label>
+                            <input type="text" id="album" class="field">
+                        </div>
+
+                        <div>
+                            <label for="link">link</label>
+                            <input type="text" id="link" class="field">
+                        </div>
+
+                        <div>
+                            <label for="notes">notes</label>
+                            <input type="text" id="notes" class="field">
+                        </div>
+
+                        <div>
+                            
+                            <input type="submit" id="submit">
+                        </div>
+                    </form>
+                </p>
+        </section>
+
+    </main>
+
+    <footer>
+            <ul class= "footer_links">
+                <a href="#" class="page_link">About</a>
+                <a href="#" class="page_link">Contact</a>
+                <a href="#" class="page_link">Downloads</a>
+            </ul>
+  </footer>
+
+</body>
+</html>
+
