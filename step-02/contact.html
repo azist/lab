@@ -9,8 +9,20 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Gelasio&display=swap');
 
-
-        body {background-color: #121212;}
+        
+        header {  
+            font-family: 'Gelasio', serif;
+            padding: 1em;
+            margin-left: 30%; 
+            margin-right: 30%; 
+            font-size: 2em;
+            text-align: center;
+            background: #1e1e1e;
+            border-radius: 1em;
+            color: #d6d6d6;
+            margin-bottom:3em;
+            text-shadow: 0.25em 0em 0.5em rgb(0, 0, 0);
+        }
 
         nav{
             border-radius: 1em;
@@ -21,6 +33,76 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom:3.5em;
+        }
+
+        body {background-color: #121212;}
+
+        section {
+            background-color: #1e1e1e;
+            margin-left: 30%; 
+            margin-right: 30%;
+            border-radius: 2em;
+        }
+
+        p {
+            font-family: 'Gelasio', serif;
+            font-size: 2em;
+            text-align: center;
+            margin-left: 8%; 
+            margin-right: 8%; 
+            padding: 8px;
+            color: #d6d6d6;
+        }
+
+        h2 {
+            font-family: 'Gelasio', serif;
+            font-size: 4em;
+            text-align: center;
+            padding-top: 1em;
+            color: #d6d6d6;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-size: 2.5em;
+        } 
+
+        a{
+            text-decoration: none;
+            color: #d6d6d6;
+        }
+
+        footer {
+            font-family: 'Gelasio', serif;
+            text-align: center;
+            padding: 1em;
+            }
+
+        footer .page_link {
+            font-size: 2em;
+            padding-bottom: 1em;
+            justify-content: space-evenly;
+            }
+
+        input[type="text"], select {
+            color: #d6d6d6;
+            text-align: center;
+            width: 75%;
+            height: 2em;
+            border: 0.25em solid #161616;
+            border-radius: 0.5em;
+            background-color: #3a3939;
+            margin: 1em;
+            font-family: 'Gelasio', serif;
+            font-size: 0.5em;
+        }
+
+        label {
+            color: #d6d6d6;
+            font-family: 'Gelasio', serif;
         }
 
         .logo {
@@ -59,70 +141,45 @@
             text-decoration: underline;
         }
 
-        header {  
-        font-family: 'Gelasio', serif;
-        padding: 1em;
-        margin-left: 30%; 
-        margin-right: 30%; 
-        font-size: 2em;
-        text-align: center;
-        background: #1e1e1e;
-        border-radius: 1em;
-        color: #d6d6d6;
-        margin-bottom:3em;
-        text-shadow: 0.25em 0em 0.5em rgb(0, 0, 0);
-        }
-
-        section {
-            background-color: #1e1e1e;
-            margin-left: 30%; 
-            margin-right: 30%;
-            border-radius: 2em;
-        }
-
-        h2 {
-            font-family: 'Gelasio', serif;
-            font-size: 4em;
-            text-align: center;
-            padding-top: 1em;
+        .release-type-label {
             color: #d6d6d6;
-        }
-
-        p {
             font-family: 'Gelasio', serif;
-            font-size: 2em;
+            font-size: 1em;
             text-align: center;
-            margin-left: 8%; 
-            margin-right: 8%; 
-            padding: 8px;
-            color: #d6d6d6;
+            margin-top: 1em;
         }
 
+        input[type="radio"] {
+            font-size: 0.1em;
+            appearance: none; /* Remove default appearance */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            height: 7em;
+            width: 7em;
+            border: 1em solid #3a3939; /* Change border color */
+            border-radius: 50%; /* Make it round */
+            outline: none;
+            transition: border-color 0.3s ease-in-out;
+        }
 
-        form {
-            display: flex;
-            flex-direction: column;
+        input[type="radio"]:checked {
+            background-color: #bb86fc;
+        }
+
+        #radio_buttons label {
+            font-size: 0.8em;
+        }
+
+        #radio_buttons {
+            margin-top: 0.75em;
+            margin-bottom: 0.75em;
+        }
+
+        .radio_input {
+            display: inline-flex;
             align-items: center;
-            text-align: center;
-            font-size: 2.5em;
-        } 
-
-        input[type="text"], select {
-            color: #d6d6d6;
-            text-align: center;
-            width: 75%;
-            height: 2em;
-            border: 0.25em solid #161616;
-            border-radius: 0.5em;
-            background-color: #3a3939;
-            margin: 1em;
-            font-family: 'Gelasio', serif;
-            font-size: 0.5em;
-        }
-
-        label {
-            color: #d6d6d6;
-            font-family: 'Gelasio', serif;
+            cursor: pointer;
+        
         }
 
         #submit {
@@ -141,28 +198,9 @@
             background-color: #2b2b2b;
         }
 
-        a{
-            text-decoration: none;
-            color: #d6d6d6;
-        }
-
         .footer_links {
-                display: none;
-            }
-
-
-        footer {
-            font-family: 'Gelasio', serif;
-            text-align: center;
-            padding: 1em;
-            }
-
-        footer .page_link {
-            font-size: 2em;
-            padding-bottom: 1em;
-            justify-content: space-evenly;
-            }
-
+            display: none;
+        }
 
         @media (max-width: 1716px) {
             nav {
@@ -363,9 +401,27 @@
                             <input type="text" id="artist" class="field">
                         </div>
 
-                        <div>
-                            <label for="album">album</label>
-                            <input type="text" id="album" class="field">
+                        <label class="release-type-label">release type</label>
+
+                        <div id="radio_buttons">
+                            
+                            <label for="release_type">
+                                <input type="radio" name="release_type" id="album" class="radio_input">
+                                <div class="radio_input"></div>
+                                Album
+                            </label>
+
+                            <label for="release_type">
+                                <input type="radio" name="release_type" id="ep" class="radio_input">
+                                <div class="radio_input"></div>
+                                EP
+                            </label>
+
+                            <label for="release_type">
+                                <input type="radio" name="release_type" id="single" class="radio_input">
+                                <div class="radio_input"></div>
+                                Single
+                            </label>
                         </div>
 
                         <div>
