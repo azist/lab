@@ -9,28 +9,13 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Gelasio&display=swap');
 
-        
-        header {  
-            font-family: 'Gelasio', serif;
-            padding: 1em;
-            margin-left: 30%; 
-            margin-right: 30%; 
-            font-size: 2em;
-            text-align: center;
-            background: #1e1e1e;
-            border-radius: 1em;
-            color: #d6d6d6;
-            margin-bottom:3em;
-            text-shadow: 0.25em 0em 0.5em rgb(0, 0, 0);
-        }
-
         nav{
             border-radius: 1em;
             padding: 4em 4.5em;
             padding-bottom: 2em;
             background: #1f1f1f;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             margin-bottom:3.5em;
         }
@@ -39,8 +24,8 @@
 
         section {
             background-color: #1e1e1e;
-            margin-left: 30%; 
-            margin-right: 30%;
+            margin-left: 15%; 
+            margin-right: 15%;
             border-radius: 2em;
         }
 
@@ -56,18 +41,16 @@
 
         h2 {
             font-family: 'Gelasio', serif;
-            font-size: 4em;
+            font-size: 5em;
             text-align: center;
             padding-top: 1em;
             color: #d6d6d6;
         }
 
         form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
             font-size: 2.5em;
+            text-align: center;
+            justify-content: center;
         } 
 
         a{
@@ -105,8 +88,15 @@
             font-family: 'Gelasio', serif;
         }
 
+        span {
+            font-family: 'Gelasio', serif;
+            font-size: 1em;
+            color: #d6d6d6;
+        }
+
+
         .logo {
-            font-size: 3.5em;
+            font-size: 6em;
             border: 0.1em black;
             color: #1f1f1f;
             -webkit-text-stroke: 0.03em #d6d6d6;
@@ -151,19 +141,99 @@
 
         input[type="radio"] {
             font-size: 0.1em;
-            appearance: none; /* Remove default appearance */
+            appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
             height: 7em;
             width: 7em;
-            border: 1em solid #3a3939; /* Change border color */
-            border-radius: 50%; /* Make it round */
+            border: 1em solid #3a3939;
+            border-radius: 50%;
             outline: none;
             transition: border-color 0.3s ease-in-out;
         }
 
         input[type="radio"]:checked {
             background-color: #bb86fc;
+        }
+
+        input[type="number"] {
+            font-family: 'Gelasio', serif;
+            color: #d6d6d6;
+            background-color: #3a3939;
+            border: 0.2em solid #161616;
+            width: 4.5em;
+            height: 1.25em;
+            text-align: center;
+            font-size: 1em;
+            border-radius: 0.2em;
+            margin-top: 0.7em;
+        }
+
+
+        input[type="date"] {
+            box-sizing: border-box;
+            width: 10em;
+            height: 3em;
+            font-family: 'Gelasio', serif;
+            color: #d6d6d6;
+            background-color: #3a3939;
+            font-size: 0.75em;
+            border: 0.2em solid #161616;
+            border-radius: 0.2em;
+            margin-bottom: 0.75em;
+            text-align: center;
+        }
+
+        input[type="checkbox"] {
+            font-family: 'Gelasio', serif;
+            color: #d6d6d6;
+            background-color: #3a3939;
+            font-size: 0.75em;
+            border: 0.2em solid #161616;
+            border-radius: 0.2em;
+            margin-bottom: 0.75em;
+            text-align: center;
+        }
+
+        ::-webkit-calendar-picker-indicator{
+            border-radius: 0.2em;
+            margin: 0.5em;
+            cursor:pointer;
+        }
+
+        #name {
+            display: inline-flex;
+        }
+
+        #dates {
+            display: inline-flex;
+        }
+
+        .date {
+            margin: 1em;
+            margin-top: 0;
+        }
+
+        #contact {
+            margin-left: 20%;
+            margin-right: 20%;
+            display: block;
+            justify-content: center;
+            text-align: center;
+            margin-top: 1em;
+            margin-bottom: 1em;
+
+        }
+
+        #guests {
+            display: block;
+            text-align: left;
+            display: block;
+            justify-content: center;
+            text-align: center;
+            margin-top: 1em;
+            margin-bottom: 1em;
+
         }
 
         #radio_buttons label {
@@ -189,7 +259,8 @@
             border: 0.25em solid #161616;
             font-family: 'Gelasio', serif;
             font-size: 0.75em;
-            margin-top: 5em;
+            margin-top: 1em;
+            margin-bottom: 1em;
             color: #d6d6d6;
             background-color: #3a3939;
         }
@@ -242,6 +313,32 @@
                 margin-top: 0;
             }
         }   
+
+
+        @media (max-width: 1080px) {
+
+            #dates {
+                display: flex;
+                flex-direction: column; 
+                align-items: center;
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+
+            .date {
+                margin: 1em;
+                margin-top: 0;
+                width: 100%; 
+            }
+
+
+
+
+
+        }
+
+
+
 
         @media (max-width: 1024px) {
             nav {
@@ -372,70 +469,119 @@
 </head>
 <body>
     
-    <nav class="navbar">
-        <a href="#" class="logo">The Music Blog</a>
-        <ul class= "nav_links">
-            <a href="#" class="page_link">About</a>
-            <a href="#" class="page_link">Contact</a>
-            <a href="#" class="page_link">Downloads</a>
-        </ul>
+    <nav>
+        <a href="#" class="logo">The Dmitriy Hotel</a>
     </nav>
 
-    <header>
-        <h1>Contact</h1>
-    </header>
 
     <main>
         <section id  = "section_1">
-                <h2 id="music">Music submissions</h2>
+                <h2 id="reg">Registration</h2>
                 <p> 
                     <form>
+                        <div id="name">
 
-                        <div>
-                            <label for="fname">first name</label>
-                            <input type="text" id="fname" class="field">
+                            <div>
+                                <label for="fname">First Name</label>
+                                <input type="text" class="field">
+                            </div>
+
+                            <div>
+                                <label for="lname">Last Name</label>
+                                <input type="text" class="field">
+                            </div>
+
                         </div>
 
-                        <div>
-                            <label for="artist">artist</label>
-                            <input type="text" id="artist" class="field">
+                        <div id="contact">
+
+                            <div>
+                                <span>Phone</span>
+                                <br>
+                                <input type="text" class="field" maxlength="10" placeholder="XXX-XXX-XXX">
+                            </div>
+
+                            <div>
+                                <span>Email</span>
+                                <br>
+                                <input type="text" class="field" placeholder="johndoe@website.com">
+                            </div>
+
                         </div>
 
-                        <label class="release-type-label">release type</label>
+                        <div id="guests">
+                            <div>
+                                <span>Number of Guests</span>
+                                <br>
+                                <input type="number" class="field" min="0" max="8">
+                            </div>
+                        </div>
+
+                        <div id="dates">
+
+                            <div class="date">
+                                <span>Arrival Date</span>
+                                <br>
+                                <input type="date" class="field">
+                            </div>
+
+                            <div class="date">
+                                <span>Leave Date</span>
+                                <br>
+                                <input type="date" class="field">
+                            </div>
+
+                        </div>
+
+
+                        <div id="checkmarks">
+
+                            <div>
+                                <label for="ldate">Pets</label>
+                                <input type="checkbox" class="field">
+                            </div>
+
+                            <div>
+                                <label for="ldate">Smoker</label>
+                                <input type="checkbox" class="field">
+                            </div>
+
+                            <div>
+                                <label for="ldate">Allergies</label>
+                                <input type="checkbox" class="field">
+                            </div>
+
+                        </div>
+
+                        <label class="release-type-label">Prefered Contact Method</label>
 
                         <div id="radio_buttons">
                             
                             <label for="release_type">
-                                <input type="radio" name="release_type" id="album" class="radio_input">
+                                <input type="radio" class="radio_input">
                                 <div class="radio_input"></div>
-                                Album
+                                Phone
                             </label>
 
                             <label for="release_type">
-                                <input type="radio" name="release_type" id="ep" class="radio_input">
+                                <input type="radio" class="radio_input">
                                 <div class="radio_input"></div>
-                                EP
+                                Email
                             </label>
 
                             <label for="release_type">
-                                <input type="radio" name="release_type" id="single" class="radio_input">
+                                <input type="radio" class="radio_input">
                                 <div class="radio_input"></div>
-                                Single
+                                Both
                             </label>
                         </div>
 
-                        <div>
-                            <label for="link">link</label>
+                        <div id="note">
+                            <label for="link">Questions/Comments</label>
                             <input type="text" id="link" class="field">
                         </div>
 
-                        <div>
-                            <label for="notes">notes</label>
-                            <input type="text" id="notes" class="field">
-                        </div>
-
-                        <div>
-                            
+                        <div>  
                             <input type="submit" id="submit">
                         </div>
                     </form>
